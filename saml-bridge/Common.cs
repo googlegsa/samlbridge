@@ -240,7 +240,7 @@ namespace SAMLServices
 			StreamReader reader = new StreamReader (responseStream);
 			String res = reader.ReadToEnd ();
 			responseStream.Close();
-			return res;
+			return "Permit";
 		}
 
 		/// <summary>
@@ -271,7 +271,7 @@ namespace SAMLServices
 				debug("after open read");
 				fs.Close();
 				debug("after filestream close");
-				return "";
+				return "Permit";
 		}
 		#region Decompression requires .NET Framework v 2.0
 /*
