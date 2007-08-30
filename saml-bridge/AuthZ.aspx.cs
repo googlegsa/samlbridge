@@ -44,6 +44,15 @@ namespace SAMLServices
 			Common.debug("inside Authz::Page_Load");
 			// Extract the URL and user ID from the SAML message
 			String[] resp = ExtractRequest();
+			if (resp == null)
+			{
+				Common.printHeader(Response);
+				Response.Write("Application Pool Identity  = "  + WindowsIdentity.GetCurrent().Name);
+				Response.Write("<br>");
+				Response.Write("Your Windows account = " + Page.User.Identity.Name);
+				Common.printFooter(Response);
+				return;
+			}
 			// Check authorization and respond
 			Authorize(resp[0], resp[1]);
 		}
@@ -61,6 +70,10 @@ namespace SAMLServices
 			// Get the SAML message (in String form) from the HTTP request
 			String req = Common.ReadRequest(Request);
 			Common.debug("The AuthZ request is: " + req);
+			if (req == null || "".Equals(req))
+			{
+				return null;
+			}
 			// Create an XMLDocument from the request
 			XmlDocument doc = new XmlDocument();
 			doc.InnerXml = req;

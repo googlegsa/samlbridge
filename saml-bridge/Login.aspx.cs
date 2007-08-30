@@ -46,14 +46,13 @@ namespace SAMLServices
 			if ((samlRequest == null || "".Equals(samlRequest) ) && (subject == null || "".Equals(subject) ))
 			{
 				// Put user code to initialize the page here
-				// Put user code to initialize the page here
-				Response.Write("Google SAML Bridge for Windows<br/>");
-				Response.Write("<br>");
+				Common.printHeader(Response);
 				Response.Write("Application Pool Identity  = "  + WindowsIdentity.GetCurrent().Name);
 				Response.Write("<br>");
-				Response.Write("User's Windows Identity = " + Page.User.Identity.Name);
-				Response.Write("<br>");
-				Response.Write("Use Login.aspx?subject=user@domain to test impersonation.");
+				Response.Write("Your Windows account  = " + Page.User.Identity.Name);
+				Response.Write("<p>");
+				Response.Write("<b>Use Login.aspx?subject=user@domain to test impersonation.</b>");
+				Common.printFooter(Response);
 				return;
 			}
 
@@ -113,8 +112,7 @@ namespace SAMLServices
 			String subject  = Request.Params["subject"];
 			if (subject == null)
 				return;
-			Response.Write("Google SAML Bridge for Windows<br/>");
-			Response.Write("<br>Impersonate for user " + subject);
+			Common.printHeader(Response);
 			WindowsIdentity wi = new WindowsIdentity(subject);
 			if (wi != null)
 				Response.Write("<br>Obtained Windows identity");
@@ -123,6 +121,8 @@ namespace SAMLServices
 			Response.Write("<br>Impersonation successful!");
 			if( wic != null)
 				wic.Undo();
+			Response.Write("<p><b>Now you can test authorization using GSA Simulator!</b>");
+			Common.printFooter(Response);
 		}
 
 		#region DecodeRequest requires .NET Framework v 2.0

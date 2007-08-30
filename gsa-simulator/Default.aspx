@@ -9,11 +9,11 @@
 		<meta name="vs_targetSchema" content="http://schemas.microsoft.com/intellisense/ie5">
 	</HEAD>
 	<body MS_POSITIONING="GridLayout">
-		<asp:HyperLink id="HyperLink1" style="Z-INDEX: 101; LEFT: 256px; POSITION: absolute; TOP: 280px"
-			runat="server" Width="280px" Height="24px" NavigateUrl="Search.aspx">To simulate a search request...</asp:HyperLink>
-		<asp:HyperLink id="HyperLink2" style="Z-INDEX: 102; LEFT: 256px; POSITION: absolute; TOP: 344px"
-			runat="server" Width="264px" Height="64px" NavigateUrl="Authz.aspx">To send authorization Request...</asp:HyperLink>
-		<asp:Label id="Label1" style="Z-INDEX: 103; LEFT: 192px; POSITION: absolute; TOP: 176px" runat="server"
-			Width="408px" Height="80px" Font-Size="Larger">Google Search Appliance  Security SPI Simulator</asp:Label>
+		<asp:HyperLink id="HyperLink1" style="Z-INDEX: 101; LEFT: 72px; POSITION: absolute; TOP: 144px"
+			runat="server" Width="280px" Height="24px" NavigateUrl="Search.aspx">To simulate a secure document search...</asp:HyperLink>
+		<asp:Label id="Label1" style="Z-INDEX: 103; LEFT: 224px; POSITION: absolute; TOP: 8px" runat="server"
+			Width="408px" Height="80px" Font-Size="Large" Font-Names="Arial">Google Search Appliance  Security SPI Simulator</asp:Label>
+		<asp:Image id="Image1" style="Z-INDEX: 104; LEFT: 8px; POSITION: absolute; TOP: 8px" runat="server"
+			ImageUrl="google.gif"></asp:Image>
 	</body>
 </HTML>

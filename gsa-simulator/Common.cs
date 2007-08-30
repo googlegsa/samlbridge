@@ -116,6 +116,17 @@ namespace gsa
 				return ac;
 			}
 		}
+		public static void printHeader(HttpResponse Response)
+		{
+			Response.Write("<style><!--					body,td,div,.p,a,.d,.s{font-family:arial,sans-serif}--></style>");
+			Response.Write("<html><body><table><tr><td><img src='google.gif'/></td><td><font size=6>Google Search Appliance Security SPI Simulator </font></td></tr></table>");
+			Response.Write("<br>");
+		}
+		public static void printFooter(HttpResponse Response)
+		{
+			Response.Write("</body></html>");
+		}
+
 		#region required .NET 2.0
 		/*
         public static byte[] Compress(byte[] input)

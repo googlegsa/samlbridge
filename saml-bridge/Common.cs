@@ -273,6 +273,18 @@ namespace SAMLServices
 				debug("after filestream close");
 				return "Permit";
 		}
+
+		public static void printHeader(HttpResponse Response)
+		{
+			Response.Write("<style><!--					body,td,div,.p,a,.d,.s{font-family:arial,sans-serif}--></style>");
+			Response.Write("<html><body><table><tr><td><img src='google.gif'/></td><td><font size=6>Google SAML Bridge for Windows</font></td></tr></table>");
+			Response.Write("<br>");
+		}
+		public static void printFooter(HttpResponse Response)
+		{
+			Response.Write("</body></html>");
+		}
+
 		#region Decompression requires .NET Framework v 2.0
 /*
 		public static String Decompress(String samlRequest)

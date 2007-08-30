@@ -9,22 +9,24 @@
 		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
 	</HEAD>
 	<body>
+		<FONT face="ËÎÌו">
+			<P><FONT face="arial" size="5">
+					<asp:Image id="Image1" runat="server" ImageUrl="google.gif"></asp:Image>
+					<asp:Label id="Label2" runat="server" Width="408px" Height="80px" Font-Names="Arial" Font-Size="Large">Google Search Appliance  Security SPI Simulator</asp:Label></FONT></P>
+		</FONT>
 		<form id="Form1" action="Search.aspx" method="get" runat="server">
 			<P>
-				<asp:textbox id="q" style="Z-INDEX: 100; LEFT: 120px; POSITION: absolute; TOP: 56px" runat="server"
-					Height="26px" Width="169px"></asp:textbox><asp:label id="Label3" style="Z-INDEX: 106; LEFT: 16px; POSITION: absolute; TOP: 104px" runat="server"
-					Height="32px" Width="88px">URL:</asp:label><asp:textbox id="Resource" style="Z-INDEX: 103; LEFT: 120px; POSITION: absolute; TOP: 96px" runat="server"
-					Height="26px" Width="248px"></asp:textbox><asp:button id="Button1" style="Z-INDEX: 101; LEFT: 184px; POSITION: absolute; TOP: 152px" runat="server"
-					Height="24px" Width="88px" Text="Search"></asp:button><asp:label id="Label1" style="Z-INDEX: 102; LEFT: 120px; POSITION: absolute; TOP: 16px" runat="server"
-					Height="32px" Width="112px">SPI Simulator</asp:label><asp:label id="Label2" style="Z-INDEX: 105; LEFT: 16px; POSITION: absolute; TOP: 64px" runat="server"
-					Height="32px" Width="88px">Search for:</asp:label></P>
-			<P>&nbsp;</P>
-			<P>&nbsp;</P>
+				<asp:label id="Label1" runat="server" Width="224px" Height="32px" Font-Names="Arial" Font-Size="Larger">Test Authorization</asp:label></P>
+			<P>
+				<asp:label id="Label3" runat="server" Width="88px" Height="32px">URL:&nbsp;</asp:label>
+				<input type=hidden name="q" value="v"/>
+				<asp:textbox id="Resource" Width="472px" Height="26px" size="100" Runat="server"></asp:textbox></P>
+			<P>
+				<asp:button id="Button1" runat="server" Width="88px" Height="24px" Text="Submit"></asp:button></P>
+			<P><FONT face="ËÎÌו"></FONT>&nbsp;</P>
+			<P><FONT face=""></FONT>&nbsp;</P>
 		</form>
-			<P>&nbsp;</P>
-			<P>&nbsp;</P>
-			<P>&nbsp;</P>
-			<P>&nbsp;</P>
-			<P>&nbsp;</P>
+		<P>&nbsp;</P>
+		<P><FONT face="ËÎÌו"></FONT>&nbsp;</P>
 	</body>
 </HTML>

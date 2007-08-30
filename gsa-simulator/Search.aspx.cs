@@ -32,19 +32,19 @@ namespace gsa
 	/// </summary>
 	public class Search : System.Web.UI.Page
 	{
-		protected System.Web.UI.WebControls.TextBox q;
 		protected System.Web.UI.WebControls.Label Label3;
 		protected System.Web.UI.WebControls.TextBox Resource;
 		protected System.Web.UI.WebControls.Button Button1;
 		protected System.Web.UI.WebControls.Label Label1;
-		protected System.Web.UI.WebControls.Button Button2;
+		protected System.Web.UI.WebControls.Image Image1;
 		protected System.Web.UI.WebControls.Label Label2;
+		protected System.Web.UI.WebControls.Button Button2;
 	
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
 			Common.log("enter page_load");
 			// Put user code to initialize the page here
-			if (Request.Params["q"] == null)
+			if (Request.Params["q"] == null || "".Equals(Request.Params["q"]))
 			{
 				return;
 			}

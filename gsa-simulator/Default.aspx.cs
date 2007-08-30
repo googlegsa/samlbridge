@@ -18,7 +18,7 @@ namespace gsa
 	{
 		protected System.Web.UI.WebControls.HyperLink HyperLink1;
 		protected System.Web.UI.WebControls.Label Label1;
-		protected System.Web.UI.WebControls.HyperLink HyperLink2;
+		protected System.Web.UI.WebControls.Image Image1;
 	
 		private void Page_Load(object sender, System.EventArgs e)
 		{

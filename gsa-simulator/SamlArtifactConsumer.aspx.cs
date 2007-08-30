@@ -44,6 +44,7 @@ namespace gsa
 			//this is not GSA behavior, it's for simulation
 			relay = HttpUtility.UrlDecode(relay);
 			int idx = relay.IndexOf("&Resource=");
+			Common.log("&resource=" + relay);
 			String res = relay.Substring(idx + 10);
 			idx = res.IndexOf("&");
 			res = res.Substring(0, idx);
