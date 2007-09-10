@@ -115,13 +115,14 @@ namespace SAMLServices
 			Common.printHeader(Response);
 			WindowsIdentity wi = new WindowsIdentity(subject);
 			if (wi != null)
-				Response.Write("<br>Obtained Windows identity");
+				Response.Write("<br>Obtained Windows identity for user " + subject);
 			WindowsImpersonationContext wic = null;
 			wic = wi.Impersonate();
+			Response.Write("<br>This message was written using the identity of " + subject);
 			Response.Write("<br>Impersonation successful!");
 			if( wic != null)
 				wic.Undo();
-			Response.Write("<p><b>Now you can test authorization using GSA Simulator!</b>");
+			Response.Write("<p><b>Now you can test content authorization using GSA Simulator!</b>");
 			Common.printFooter(Response);
 		}
 
