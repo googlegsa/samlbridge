@@ -10,7 +10,7 @@
 	</HEAD>
 	<body MS_POSITIONING="GridLayout">
 		<asp:HyperLink id="HyperLink1" style="Z-INDEX: 101; LEFT: 72px; POSITION: absolute; TOP: 144px"
-			runat="server" Width="280px" Height="24px" NavigateUrl="Search.aspx">To simulate a secure document search...</asp:HyperLink>
+			runat="server" Width="360px" Height="24px" NavigateUrl="Search.aspx">Click this link to simulate a secure document search.</asp:HyperLink>
 		<asp:Label id="Label1" style="Z-INDEX: 103; LEFT: 224px; POSITION: absolute; TOP: 8px" runat="server"
 			Width="408px" Height="80px" Font-Size="Large" Font-Names="Arial">Google Search Appliance  Security SPI Simulator</asp:Label>
 		<asp:Image id="Image1" style="Z-INDEX: 104; LEFT: 8px; POSITION: absolute; TOP: 8px" runat="server"

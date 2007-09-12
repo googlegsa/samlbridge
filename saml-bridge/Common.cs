@@ -82,11 +82,6 @@ namespace SAMLServices
 				log(msg);
 		}
 
-		public static void info(String msg)
-		{
-			if (LOG_LEVEL <= INFO)
-				log(msg);
-		}
 
 		/// <summary>
 		/// Method for logging debug/trace information to a file.
@@ -258,6 +253,10 @@ namespace SAMLServices
 				String file = url;
 				file = file.Replace("smb://", "\\\\");
 				return GetFile(file);
+			}
+			else if (url.StartsWith("\\\\"))
+			{
+				return GetFile(url);
 			}
 			return "Deny";
 		}
