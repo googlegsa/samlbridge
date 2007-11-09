@@ -4,7 +4,7 @@
     <samlp:ArtifactResponse
       xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
       xmlns="urn:oasis:names:tc:SAML:2.0:assertion"
-      ID="%ID" Version="2.0"
+      ID="%MESSAGE_ID" Version="2.0"
       InResponseTo="%REQID"
       IssueInstant="%INSTANT">
       <Issuer>%ISSUER</Issuer>
@@ -12,7 +12,7 @@
         <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:%STATUS"/>
       </samlp:Status>
       <samlp:Response
-        ID="%ID"
+        ID="%RESPONSE_ID"
         Version="2.0"
         IssueInstant="%INSTANT">
         <samlp:Status>
@@ -21,7 +21,7 @@
         </samlp:Status>
         <Assertion
           Version="2.0"
-          ID="%ID"
+          ID="%ASSERTION_ID"
           IssueInstant="%INSTANT">
           <Issuer>"%ISSUER"</Issuer>
           <Subject>

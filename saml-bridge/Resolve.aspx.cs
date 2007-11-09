@@ -124,7 +124,9 @@ namespace SAMLServices
 
 			req = req.Replace("%INSTANT", Common.FormatInvariantTime(DateTime.Now));
 			req = req.Replace("%ISSUER", Server.MachineName);
-			req = req.Replace("%ID", Common.GenerateRandomString());
+			req = req.Replace("%MESSAGE_ID", Common.GenerateRandomString());
+			req = req.Replace("%RESPONSE_ID", Common.GenerateRandomString());
+			req = req.Replace("%ASSERTION_ID", Common.GenerateRandomString());
 			req = req.Replace("%STATUS", "Success");
 			req = req.Replace("%CLASS", "InternetProtocol");
 			req = req.Replace("%SUBJECT", subject); 
