@@ -158,7 +158,7 @@ namespace SAMLServices.Wia
 				else
 					status = "Indeterminate";
 			}
-			catch(UnauthorizedAccessException e)
+			catch(UnauthorizedAccessException e) //can't write to the log file
 			{
 				if( wic != null)
 				{
@@ -166,7 +166,7 @@ namespace SAMLServices.Wia
 					wic = null;
 				}
 				Common.debug(e.Message);
-				status = "Deny";
+				status = "Log file writing error. Possible cause:  you don't have access to the ac.log. To ensure access rights, please give account EVERYONE write permission to this file";
 			}
 			catch(Exception e)
 			{
@@ -180,7 +180,7 @@ namespace SAMLServices.Wia
 				// AuthZ methods (i.e. Basic, NTLM, SSO) to determine access
 				Common.error("AuthImpl::caught exception");
 				Common.error(e.Message);
-				status = "Indeterminate";
+				status = "Indeterminate, unknown exception, check ac.log";
 			}
 			finally
 			{
