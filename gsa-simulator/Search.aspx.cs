@@ -24,6 +24,7 @@ using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
+using System.Security;
 
 namespace gsa
 {
@@ -49,8 +50,10 @@ namespace gsa
 				return;
 			}
 			String query = "SamlRequest=" + BuildSamlRequest();
-			Common.log(query);
 			query += "&RelayState=" + HttpUtility.UrlEncode(Request.Url.AbsoluteUri);
+			Common.log(query);
+			Session.Add("URL", Request.Params["Resource"]);
+			Common.log("URL to test: " + Request.Params["Resource"]);
 			//Response.Write(query);
 			Response.Redirect(Common.AC + "Login.aspx?" + query);
 		}

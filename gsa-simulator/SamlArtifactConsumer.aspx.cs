@@ -27,6 +27,7 @@ using System.Web.UI.HtmlControls;
 using System.Net;
 using System.IO;
 using System.Xml;
+using System.Security;
 
 namespace gsa
 {
@@ -39,20 +40,18 @@ namespace gsa
 		{
 			Common.log("gsa::SamArtifactConsumer_Page_Load");
 			String subject = GetSubject();
-			String relay = Request.Params["RelayState"];
 			//we now extract the url from the relayState, 
 			//this is not GSA behavior, it's for simulation
-			relay = HttpUtility.UrlDecode(relay);
-			int idx = relay.IndexOf("&Resource=");
-			Common.log("&resource=" + relay);
-			String res = relay.Substring(idx + 10);
-			idx = res.IndexOf("&");
-			res = res.Substring(0, idx);
+			String res = (String)Session["URL"];
+			Session.Remove("URL");
+			Common.log("URL to authorize: " + res);
+						
 			if (subject == null)
 			{
 				Response.Write("failed");
 				return;
 			}
+			res = SecurityElement.Escape(res);
 			Authz(subject, res);
 		}
 
@@ -82,7 +81,6 @@ namespace gsa
 		{
 			Common.log("gsa::SamArtifactConsumer:Authz");
 			//now authorize the url
-			String relay =	Request.Params[Common.RelayState];
 			String req = Common.AuthzTemplate;
 			req = req.Replace("%INSTANT", Common.FormatNow());
 			req = req.Replace("%ID", Common.GenerateRandomString());

@@ -94,12 +94,8 @@ namespace SAMLServices
 			}
 			// The User ID (distinguished name) is in the Subject element,
 			//  so chop up the InnerXml string to obtain it.
-			resp[0] = sub.InnerXml;
-			Common.debug(resp[0]);
-			int idx = resp[0].IndexOf(">");
-			resp[0] = resp[0].Substring(idx + 1);
-			idx = resp[0].IndexOf("<");
-			resp[0]= resp[0].Substring(0, idx);
+			resp[0] = sub.ChildNodes[0].InnerText;
+			Common.debug("subject=" + resp[0]);
 			// The URL is in the Resource attribute of the AuthzDecisionQuery node
 			XmlNode urlNode = Common.FindOnly(doc, "AuthzDecisionQuery");
 			resp[1]= urlNode.Attributes["Resource"].Value;
@@ -124,9 +120,9 @@ namespace SAMLServices
 			req = req.Replace("%ASSERTION_ID", Common.GenerateRandomString());
 			req = req.Replace("%INSTANT", Common.FormatInvariantTime(DateTime.Now));
 			req = req.Replace("%STATUS", "Success");
-			req = req.Replace("%ISSUER", Server.MachineName);
-			req = req.Replace("%SUBJECT", subject);
-			req = req.Replace("%RESOURCE", url);
+			req = req.Replace("%ISSUER", SecurityElement.Escape(Server.MachineName));
+			req = req.Replace("%SUBJECT", SecurityElement.Escape(subject));
+			req = req.Replace("%RESOURCE",SecurityElement.Escape( url));
 			// Initialize an AuthZ object
 			IAuthz authz = AAFactory.getAuthz(this);
 			subject = subject.Replace("CN=", "");

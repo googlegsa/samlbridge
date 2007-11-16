@@ -121,15 +121,15 @@ namespace SAMLServices
 			Common.debug("inside BuildResponse");
 			String req = Common.AuthNResponseTemplate;
 			req = req.Replace("%REQID", responseTo);
-
+			
 			req = req.Replace("%INSTANT", Common.FormatInvariantTime(DateTime.Now));
-			req = req.Replace("%ISSUER", Server.MachineName);
+			req = req.Replace("%ISSUER", SecurityElement.Escape(Server.MachineName));
 			req = req.Replace("%MESSAGE_ID", Common.GenerateRandomString());
 			req = req.Replace("%RESPONSE_ID", Common.GenerateRandomString());
 			req = req.Replace("%ASSERTION_ID", Common.GenerateRandomString());
 			req = req.Replace("%STATUS", "Success");
 			req = req.Replace("%CLASS", "InternetProtocol");
-			req = req.Replace("%SUBJECT", subject); 
+			req = req.Replace("%SUBJECT", SecurityElement.Escape(subject)); 
 			XmlDocument doc = new XmlDocument();
 			doc.InnerXml = req;
 			Common.debug("exit BuildResponse");
