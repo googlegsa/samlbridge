@@ -166,7 +166,7 @@ namespace SAMLServices.Wia
 					wic = null;
 				}
 				Common.debug(e.Message);
-				status = "Log file writing error. Possible cause:  you don't have access to the ac.log. To ensure access rights, please give account EVERYONE write permission to this file";
+				status = e.Message;
 			}
 			catch(Exception e)
 			{

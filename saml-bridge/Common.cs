@@ -91,11 +91,14 @@ namespace SAMLServices
 		/// <param name="msg"></param>
 		private static void log(String msg)
 		{
-
-			StreamWriter logger = File.AppendText(LogFile);
-			System.Diagnostics.StackFrame frame = new System.Diagnostics.StackTrace().GetFrame(2);
-			logger.WriteLine(System.DateTime.Now + ", " + frame.GetMethod().Name + ": " +  msg );
-			logger.Close();
+			lock(LogFile)
+			{
+			
+				StreamWriter logger = File.AppendText(LogFile);
+				System.Diagnostics.StackFrame frame = new System.Diagnostics.StackTrace().GetFrame(2);
+				logger.WriteLine(System.DateTime.Now + ", " + frame.GetMethod().Name + ": " +  msg );
+				logger.Close();
+			}
 		}
 
 		 
@@ -230,12 +233,18 @@ namespace SAMLServices
 			//you can set a proxy if you need to
 			//web.Proxy = new WebProxy("http://proxyhost.abccorp.com", 3128);
 			// Get/Read the response from the remote HTTP server
-			WebResponse response  = web.GetResponse();
+			HttpWebResponse response  = (HttpWebResponse)web.GetResponse();
 			Stream responseStream = response.GetResponseStream();
 			StreamReader reader = new StreamReader (responseStream);
 			String res = reader.ReadToEnd ();
 			responseStream.Close();
-			return "Permit";
+			debug("response code  "  + response.StatusCode);
+			if (response.StatusCode.CompareTo(HttpStatusCode.BadRequest) < 0) //less than 400, not denied
+			{
+				debug("response code is "  + (int) response.StatusCode + "	lower than 400, return permit, unless you wanna customize the code" );
+				return "Permit";
+			}
+			return "Deny";
 		}
 
 		/// <summary>
