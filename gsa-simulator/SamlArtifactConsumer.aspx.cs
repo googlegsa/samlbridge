@@ -68,12 +68,11 @@ namespace gsa
 			XmlDocument doc = new XmlDocument();
 			doc.InnerXml = res;
 			XmlNodeList list = doc.GetElementsByTagName("Subject");
+			//<subject>
 			XmlNode subject = list.Item(0);
-			String sub = subject.InnerXml;
-			int idx = sub.IndexOf("CN=");
-			sub = sub.Substring(idx + 3);
-			idx = sub.IndexOf("<");
-			sub = sub.Substring(0, idx);
+			//<nameId>
+			subject = subject.LastChild;
+			String sub = subject.InnerText;
 			return sub;
 		}
 

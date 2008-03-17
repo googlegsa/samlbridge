@@ -95,6 +95,7 @@ namespace gsa
 			Stream responseStream = response.GetResponseStream();
 			StreamReader reader = new StreamReader (responseStream);
 			String res = reader.ReadToEnd ();
+			Common.log("response from saml authz is: " + res);
 			responseStream.Close();
 			return res;
 		}
