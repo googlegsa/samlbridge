@@ -44,7 +44,7 @@ namespace SAMLServices
 			if (IMP_METHOD.Equals("siteminder"))
 			{
 				Common.debug("instantiate ImpSiteMinder");
-				imp = new ImpSiteMinder();
+				imp = new ImpSM();
 				return;
 			}
 			Common.debug("missing impersonation provider");

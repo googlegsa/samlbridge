@@ -189,7 +189,7 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "ImpSiteMinder.cs"
+                    RelPath = "ImpSM.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
