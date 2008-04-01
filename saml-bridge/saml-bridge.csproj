@@ -3,13 +3,13 @@
         ProjectType = "Web"
         ProductVersion = "7.10.3077"
         SchemaVersion = "2.0"
-        ProjectGuid = "{1CE924E2-AA0C-4620-8462-B3150AE0AB02}"
+        ProjectGuid = "{B883260B-651C-465D-9CE1-DC4938B3991A}"
     >
         <Build>
             <Settings
                 ApplicationIcon = ""
                 AssemblyKeyContainerName = ""
-                AssemblyName = "gsa"
+                AssemblyName = "ac"
                 AssemblyOriginatorKeyFile = ""
                 DefaultClientScript = "JScript"
                 DefaultHTMLPageLayout = "Grid"
@@ -18,7 +18,7 @@
                 OutputType = "Library"
                 PreBuildEvent = ""
                 PostBuildEvent = ""
-                RootNamespace = "gsa"
+                RootNamespace = "ac"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
@@ -94,28 +94,41 @@
         <Files>
             <Include>
                 <File
+                    RelPath = "AAFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "AssemblyInfo.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Authz.aspx"
-                    SubType = "Form"
+                    RelPath = "AuthImpl.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "AuthnResponse.xml"
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "Authz.aspx.cs"
-                    DependentUpon = "Authz.aspx"
+                    RelPath = "AuthZ.aspx"
+                    BuildAction = "Content"
+                />
+                <File
+                    RelPath = "AuthZ.aspx.cs"
+                    DependentUpon = "AuthZ.aspx"
                     SubType = "ASPXCodeBehind"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Authz.aspx.resx"
-                    DependentUpon = "Authz.aspx.cs"
+                    RelPath = "AuthZ.aspx.resx"
+                    DependentUpon = "AuthZ.aspx.cs"
                     BuildAction = "EmbeddedResource"
                 />
                 <File
-                    RelPath = "AuthZ.xml"
+                    RelPath = "AuthzResponse.xml"
                     BuildAction = "Content"
                 />
                 <File
@@ -124,19 +137,19 @@
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Default.aspx"
+                    RelPath = "Dump.aspx"
                     SubType = "Form"
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "Default.aspx.cs"
-                    DependentUpon = "Default.aspx"
+                    RelPath = "Dump.aspx.cs"
+                    DependentUpon = "Dump.aspx"
                     SubType = "ASPXCodeBehind"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Default.aspx.resx"
-                    DependentUpon = "Default.aspx.cs"
+                    RelPath = "Dump.aspx.resx"
+                    DependentUpon = "Dump.aspx.cs"
                     BuildAction = "EmbeddedResource"
                 />
                 <File
@@ -156,42 +169,64 @@
                     BuildAction = "EmbeddedResource"
                 />
                 <File
-                    RelPath = "SamlArtifactConsumer.aspx"
+                    RelPath = "IAuthn.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "IAuthz.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "IImpersonation.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ImpHeader.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "ImpSiteMinder.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "Login.aspx"
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "SamlArtifactConsumer.aspx.cs"
-                    DependentUpon = "SamlArtifactConsumer.aspx"
+                    RelPath = "Login.aspx.cs"
+                    DependentUpon = "Login.aspx"
                     SubType = "ASPXCodeBehind"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "SamlArtifactConsumer.aspx.resx"
-                    DependentUpon = "SamlArtifactConsumer.aspx.cs"
+                    RelPath = "Login.aspx.resx"
+                    DependentUpon = "Login.aspx.cs"
                     BuildAction = "EmbeddedResource"
                 />
                 <File
-                    RelPath = "SamlRequest.xml"
+                    RelPath = "Resolve.aspx"
                     BuildAction = "Content"
                 />
                 <File
-                    RelPath = "SamlResolve.xml"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Search.aspx"
-                    BuildAction = "Content"
-                />
-                <File
-                    RelPath = "Search.aspx.cs"
-                    DependentUpon = "Search.aspx"
+                    RelPath = "Resolve.aspx.cs"
+                    DependentUpon = "Resolve.aspx"
                     SubType = "ASPXCodeBehind"
                     BuildAction = "Compile"
                 />
                 <File
-                    RelPath = "Search.aspx.resx"
-                    DependentUpon = "Search.aspx.cs"
+                    RelPath = "Resolve.aspx.resx"
+                    DependentUpon = "Resolve.aspx.cs"
                     BuildAction = "EmbeddedResource"
+                />
+                <File
+                    RelPath = "SsoAuthImpl.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
                 />
                 <File
                     RelPath = "Web.config"

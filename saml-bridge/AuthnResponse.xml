@@ -25,7 +25,7 @@
           IssueInstant="%INSTANT">
           <Issuer>"%ISSUER"</Issuer>
           <Subject>
-            <NameID>CN=%SUBJECT</NameID>
+            <NameID>%SUBJECT</NameID>
           </Subject>
           <AuthnStatement
             AuthnInstant="%INSTANT">

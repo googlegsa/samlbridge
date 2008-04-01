@@ -15,6 +15,8 @@
  */
 
 using System;
+using System.Web;
+using System.IO;
 using System.Security;
 using System.Security.Principal;
 using System.Web.UI;
@@ -48,6 +50,41 @@ namespace SAMLServices.Wia
 			return principal;
 		}
 
+		/// <summary>
+		/// Test impersonation directly without GSA involved.
+		/// Expect the request having a parameter "subject"
+		/// </summary>
+		public void Diagnose()
+		{
+			HttpRequest Request = page.Request;
+			HttpResponse Response = page.Response;
+			String samlRequest = Request.Params["SAMLRequest"];			
+			// Put user code to initialize the page here
+			Common.printHeader(Response);
+			String subject  = Request.Params["subject"];
+			if (subject == null)
+			{
+				Response.Write("Application Pool Identity  = "  + WindowsIdentity.GetCurrent().Name);
+				Response.Write("<br>");
+				Response.Write("Your Windows account  = " + page.User.Identity.Name);
+				Response.Write("<p>");
+				Response.Write("<b>Use Login.aspx?subject=user@domain to test impersonation.</b>");
+			}else
+			//Test Impersonation
+			{
+				WindowsIdentity wi = new WindowsIdentity(subject);
+				if (wi != null)
+					Response.Write("<br>Obtained Windows identity for user " + subject);
+				WindowsImpersonationContext wic = null;
+				wic = wi.Impersonate();
+				Response.Write("<br>This message was written using the identity of " + subject);
+				Response.Write("<br>Impersonation successful!");
+				if( wic != null)
+					wic.Undo();
+				Response.Write("<p><b>Now you can test content authorization using GSA Simulator!</b>");
+			}
+			Common.printFooter(Response);
+		}
 		#endregion
 
 		#region IAuthz Members
@@ -64,18 +101,6 @@ namespace SAMLServices.Wia
 			Common.debug("inside AuthImpl::GetPermission");
 			Common.debug("url=" + url);
 			Common.debug("subject=" + subject);
-			IDictionaryEnumerator it = Common.alias.GetEnumerator();
-			while (it.MoveNext())
-			{
-				Common.debug("Has host_alias key: ---"  + it.Key + "---");
-				if (url.IndexOf((String)it.Key)>0)
-				{
-					url = url.Replace((String)it.Key, (String)it.Value);
-					Common.debug("host name " + (String)it.Key + " is replaced with " + (String)it.Value);
-					Common.debug("new URL: " + url);
-					break;
-				}
-			}
 			// Convert the user name from domainName\userName format to 
 			// userName@domainName format if necessary
 	
@@ -104,7 +129,7 @@ namespace SAMLServices.Wia
 				wic = wi.Impersonate();
 				Common.debug("after impersonate");
 				// Attempt to access the network resources as this user
-				String result = Common.GetURL(url);
+				String result = GetURL(url);
 				Common.debug("http Head response should be empty, is it? = " + result);
 				// Successfully retrieved URL, so set AuthZ decision to "Permit"
 				status = result;
@@ -192,6 +217,79 @@ namespace SAMLServices.Wia
 			Common.debug("exit AuthImpl::GetPermission return status=" + status);
 			return status;
 		}
+
+		/// <summary>
+		/// Method to perform an HTTP GET request for a URL.
+		///This is used in combination with user impersonation
+		/// to determine whether the user has access to the document
+		/// </summary>
+		/// <param name="url">target URL</param>
+		/// <param name="cred">The credential to be used when accessing the URL</param>
+		/// <returns></returns>
+		public static String GetURL(String url, ICredentials cred)
+		{
+			Common.debug("inside GetURL internal");
+			HttpWebRequest web = (HttpWebRequest) WebRequest.Create(url);
+			web.AllowAutoRedirect = false;
+
+			web.Method = "HEAD";
+			web.Credentials = cred;
+			
+			//web.Credentials = CredentialCache.DefaultNetworkCredentials;
+			//web.Credentials = new NetworkCredential("username", "password", "myDomain");
+			Common.debug("Sending a Head request to target URL");
+			//you can set a proxy if you need to
+			//web.Proxy = new WebProxy("http://proxyhost.abccorp.com", 3128);
+			// Get/Read the response from the remote HTTP server
+			HttpWebResponse response  = (HttpWebResponse)web.GetResponse();
+			if (Common.LOG_LEVEL == Common.DEBUG)
+			{
+				Stream responseStream = response.GetResponseStream();
+				StreamReader reader = new StreamReader (responseStream);
+				String res = reader.ReadToEnd ();
+				responseStream.Close();
+			}
+			return Common.handleDeny(response);
+		}
+
+		/// <summary>
+		/// Access URL using the default (current process identity's) credential
+		/// </summary>
+		/// <param name="url"></param>
+		/// <returns></returns>
+		public String GetURL(String url)
+		{
+			Common.debug("GetURL =" + url);
+			if (url.StartsWith("http"))
+				return GetURL(url, CredentialCache.DefaultCredentials);
+			else if (url.StartsWith("smb"))
+			{
+				String file = url;
+				file = file.Replace("smb://", "\\\\");
+				return GetFile(file);
+			}
+			else if (url.StartsWith("\\\\"))
+			{
+				return GetFile(url);
+			}
+			return "Deny";
+		}
+
+		public String GetFile(String url)
+		{
+			Common.debug("GetFile: " + url);
+			//urldecode, because GSA sends URL for file in encoded format
+			url = System.Web.HttpUtility.UrlDecode(url);
+			Common.debug("afer : " + url);
+			FileInfo fi = new FileInfo(url);
+			Common.debug("after new FileInfo: ");
+			FileStream fs = fi.OpenRead();
+			Common.debug("after open read");
+			fs.Close();
+			Common.debug("after filestream close");
+			return "Permit";
+		}
+
 		#endregion			
 	}
 }

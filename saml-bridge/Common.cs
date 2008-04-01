@@ -18,6 +18,7 @@ using System;
 using System.Globalization;
 using System.Xml;
 using System.Web;
+using System.Collections.Specialized;
 using System.Net;
 using System.IO;
 using System.Security.Principal;
@@ -48,8 +49,12 @@ namespace SAMLServices
 		public static Type provider = typeof (SAMLServices.Wia.AuthImpl);
 		public static int DEBUG=0, INFO=1, ERROR=2;
 		public static int LOG_LEVEL  = INFO;
-		public static Hashtable  alias = new Hashtable();
-		
+		public static String SsoSubjectVar= null;
+		public static Hashtable denyUrls = new Hashtable();
+		public static Hashtable denyCodes = new Hashtable();
+		public static String DenyAction = null;
+		public static String DENY_REDIRECT = "redirect";
+		public static String DENY_RETURN_CODE = "return_code";
 		/// <summary>
 		/// read the host name of the GSA from the Web.config file
 		/// </summary>
@@ -211,76 +216,6 @@ namespace SAMLServices
 			return req;
 		}
 
-		/// <summary>
-		/// Method to perform an HTTP GET request for a URL.
-		///This is used in combination with user impersonation
-		/// to determine whether the user has access to the document
-		/// </summary>
-		/// <param name="url">target URL</param>
-		/// <param name="cred">The credential to be used when accessing the URL</param>
-		/// <returns></returns>
-		public static String GetURL(String url, ICredentials cred)
-		{
-			debug("inside GetURL internal");
-			WebRequest web = WebRequest.Create(url);
-			
-			web.Method = "HEAD";
-			web.Credentials = cred;
-			
-			//web.Credentials = CredentialCache.DefaultNetworkCredentials;
-			//web.Credentials = new NetworkCredential("username", "password", "myDomain");
-			debug("Sending a Head request to target URL");
-			//you can set a proxy if you need to
-			//web.Proxy = new WebProxy("http://proxyhost.abccorp.com", 3128);
-			// Get/Read the response from the remote HTTP server
-			HttpWebResponse response  = (HttpWebResponse)web.GetResponse();
-			Stream responseStream = response.GetResponseStream();
-			StreamReader reader = new StreamReader (responseStream);
-			String res = reader.ReadToEnd ();
-			responseStream.Close();
-			debug("response code  "  + response.StatusCode);
-			if (response.StatusCode.CompareTo(HttpStatusCode.BadRequest) < 0) //less than 400, not denied
-			{
-				debug("response code is "  + (int) response.StatusCode + "	lower than 400, return permit, unless you wanna customize the code" );
-				return "Permit";
-			}
-			return "Deny";
-		}
-
-		/// <summary>
-		/// Access URL using the default (current process identity's) credential
-		/// </summary>
-		/// <param name="url"></param>
-		/// <returns></returns>
-		public static String GetURL(String url)
-		{
-			debug("GetURL =" + url);
-			if (url.StartsWith("http"))
-				return GetURL(url, CredentialCache.DefaultCredentials);
-			else if (url.StartsWith("smb"))
-			{
-				String file = url;
-				file = file.Replace("smb://", "\\\\");
-				return GetFile(file);
-			}
-			else if (url.StartsWith("\\\\"))
-			{
-				return GetFile(url);
-			}
-			return "Deny";
-		}
-
-		public static String GetFile(String url)
-		{
-				debug("GetFile: " + url);
-				FileInfo fi = new FileInfo(url);
-				debug("after new FileInfo: ");
-				FileStream fs = fi.OpenRead();
-				debug("after open read");
-				fs.Close();
-				debug("after filestream close");
-				return "Permit";
-		}
 
 		public static void printHeader(HttpResponse Response)
 		{
@@ -291,6 +226,68 @@ namespace SAMLServices
 		public static void printFooter(HttpResponse Response)
 		{
 			Response.Write("</body></html>");
+		}
+
+		public static String handleDeny(HttpWebResponse response)
+		{
+			//now handle deny 
+			String denyAction = Common.DenyAction;
+			Common.debug ("action is " + denyAction);			
+			if (Common.DENY_REDIRECT.Equals(denyAction))
+			{
+				
+				String[] locations =response.Headers.GetValues("Location");
+				if (locations != null)
+				{
+					String location = locations[0].ToLower();
+					Common.debug("The new location of the requested resource is at " + location);
+					foreach(String key in Common.denyUrls.Keys)
+					{
+						if (location.StartsWith(key))
+						{
+							Common.debug("deny url found");
+							return "Deny";
+						}
+					}
+				}
+			}
+			else //error code
+			{
+				int status = (int)response.StatusCode;
+				Common.debug("status code " + status);
+				foreach(String key in Common.denyCodes.Keys)
+				{
+					Common.debug("deny code " + key);
+					if (key.Equals(status))
+					{
+						Common.debug("deny status found");
+						return "Deny";
+					}
+				}
+			}
+			return "Permit";
+		}
+
+		public static void dumpHeaders(NameValueCollection headers)
+		{
+			for (int i =0; i< headers.Count; ++i)
+			{
+				Common.debug("<td>" + headers.Keys[i] + "</td><td>" );
+				foreach (String val in headers.GetValues(i))
+				{
+					Common.debug(val + ",  ");
+				}				
+			}
+		}
+
+		public static void dumpResponse(HttpWebResponse response)
+		{
+			Common.debug ("response: ");
+			Stream responseStream = response.GetResponseStream();
+			StreamReader reader = new StreamReader (responseStream);
+			String res = reader.ReadToEnd ();
+			responseStream.Close();
+			Common.debug (res);
 		}
 
 		#region Decompression requires .NET Framework v 2.0

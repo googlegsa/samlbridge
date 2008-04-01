@@ -41,37 +41,19 @@ namespace SAMLServices
 			Common.debug("before Login::entering pageload");
 			// create an IAutn instance
 			IAuthn authn = AAFactory.getAuthn(this);
-			String samlRequest = Request.Params["SAMLRequest"];			
-			String subject  = Request.Params["subject"];
-			if ((samlRequest == null || "".Equals(samlRequest) ) && (subject == null || "".Equals(subject) ))
-			{
-				// Put user code to initialize the page here
-				Common.printHeader(Response);
-				Response.Write("Application Pool Identity  = "  + WindowsIdentity.GetCurrent().Name);
-				Response.Write("<br>");
-				Response.Write("Your Windows account  = " + Page.User.Identity.Name);
-				Response.Write("<p>");
-				Response.Write("<b>Use Login.aspx?subject=user@domain to test impersonation.</b>");
-				Common.printFooter(Response);
-				return;
-			}
-
-			if (subject != null)
-			{
-				TestImpersonation();
-				return;
-			}
 			// Decode the request from the GSA.
 			//  This isn't used but shows how it could be.
 			// Since this requires version 2.0 of the .NET Framework, it's commented out for now
 			// DecodeRequest();
-
-			// Generate a random string (artifact) that the GSA
-			//  will use later to confirm the user's identity
-			String id = Common.GenerateRandomString();
-
-            // Get the user's identity (silently, if properly configured).
-			subject = authn.GetUserIdentity();
+			String samlRequest = Request.Params["SAMLRequest"];			
+			if (samlRequest == null || "".Equals(samlRequest) ) 
+			{
+				authn.Diagnose();
+				return;
+			}
+			
+			String subject = authn.GetUserIdentity();
+			// Get the user's identity (silently, if properly configured).
 			if (subject == null || subject.Equals(""))
 			{
 				Common.error("Couldn't get user name, check your system setup");
@@ -79,6 +61,9 @@ namespace SAMLServices
 			}
 			Common.debug("The user is: " + subject);
 
+			// Generate a random string (artifact) that the GSA
+			//  will use later to confirm the user's identity
+			String id = Common.GenerateRandomString();
 			// Set an application level name/value pair for storing the user ID with the artifact string.
 			// This is used later when the GSA asks to verify the artifact and obtain the 
 			//  user ID (in ResolveArt.aspx.cs).
@@ -103,28 +88,6 @@ namespace SAMLServices
 
 		}
 
-		/// <summary>
-		/// Test impersonation directly without GSA involved.
-		/// Expect the request having a parameter "subject"
-		/// </summary>
-		private void TestImpersonation()
-		{
-			String subject  = Request.Params["subject"];
-			if (subject == null)
-				return;
-			Common.printHeader(Response);
-			WindowsIdentity wi = new WindowsIdentity(subject);
-			if (wi != null)
-				Response.Write("<br>Obtained Windows identity for user " + subject);
-			WindowsImpersonationContext wic = null;
-			wic = wi.Impersonate();
-			Response.Write("<br>This message was written using the identity of " + subject);
-			Response.Write("<br>Impersonation successful!");
-			if( wic != null)
-				wic.Undo();
-			Response.Write("<p><b>Now you can test content authorization using GSA Simulator!</b>");
-			Common.printFooter(Response);
-		}
 
 		#region DecodeRequest requires .NET Framework v 2.0
 

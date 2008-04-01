@@ -125,7 +125,6 @@ namespace SAMLServices
 			req = req.Replace("%RESOURCE",SecurityElement.Escape( url));
 			// Initialize an AuthZ object
 			IAuthz authz = AAFactory.getAuthz(this);
-			subject = subject.Replace("CN=", "");
 			subject = subject.Trim();
 			// Get the user's permissions to this object (url).
 			String sStatus = authz.GetPermission(url, subject);

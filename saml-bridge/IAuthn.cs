@@ -24,5 +24,7 @@ namespace SAMLServices
 	public interface IAuthn
 	{
 		String GetUserIdentity();
+		void Diagnose();
 	}
+
 }

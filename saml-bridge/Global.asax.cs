@@ -68,8 +68,9 @@ namespace SAMLServices
 				Common.provider = Type.GetType(sProvider);
 			//log 
 			Common.LogFile = Server.MapPath("ac.log");
-			
-			String alias = ConfigurationSettings.AppSettings["host_alias"];
+			Common.SsoSubjectVar = ConfigurationSettings.AppSettings["sso_user_var"];
+			Common.DenyAction = ConfigurationSettings.AppSettings["deny_action"];
+			String alias = ConfigurationSettings.AppSettings["deny_urls"];
 			if (alias != null) 
 			{
 				String[] hosts = alias.Split(new char[]{';'});
@@ -77,12 +78,21 @@ namespace SAMLServices
 				{
 					if (hosts[i] == null || hosts[i].Equals(""))
 						continue;
-					String [] host = hosts[i].Split(new char[]{'='});
-					if (host != null && host.Length == 2)
-						Common.alias.Add(host[0], host[1]);
+					Common.denyUrls.Add(hosts[i].ToLower().Trim(), "1");
 				}
 			}
-			
+			String codes = ConfigurationSettings.AppSettings["deny_codes"];
+			if (codes != null) 
+			{
+				String[] aCodes = codes.Split(new char[]{';'});
+				for (int i =0; i < aCodes.Length; ++i)
+				{
+					if (aCodes[i] == null || aCodes[i].Equals(""))
+						continue;
+					Common.denyCodes.Add(aCodes[i].Trim(), "1");
+				}
+			}
+			ImpHeader.COOKIE_DOMAIN = ConfigurationSettings.AppSettings["imp_cookie_domain"];
 		}
  
 		protected void Session_Start(Object sender, EventArgs e)
