@@ -1,1 +1,1 @@
-<%@ Application Codebehind="Global.asax.cs" Inherits="gsa.Global" %>
+<%@ Application Codebehind="~\App_Data\Global.cs" Inherits="gsa.Global" %>

@@ -12,20 +12,11 @@ using System.Net;
 using System.IO;
 using System.Xml;
 
-namespace gsa
-{
 	/// <summary>
 	/// Summary description for Authz.
 	/// </summary>
-	public class Authz : System.Web.UI.Page
+public partial class Authz : System.Web.UI.Page
 	{
-		protected System.Web.UI.WebControls.Label Label4;
-		protected System.Web.UI.WebControls.Button Button2;
-		protected System.Web.UI.WebControls.Label Label5;
-		protected System.Web.UI.WebControls.Label Label1;
-		protected System.Web.UI.WebControls.TextBox txtResponse;
-		protected System.Web.UI.WebControls.TextBox file;
-	
 		private void Page_Load(object sender, System.EventArgs e)
 		{
 			// Put user code to initialize the page here
@@ -76,4 +67,3 @@ namespace gsa
 		}
 		#endregion
 	}
-}

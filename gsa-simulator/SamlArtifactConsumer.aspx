@@ -1,1 +1,1 @@
-<%@ Page language="c#" Inherits="gsa.SamlArtifactConsumer" CodeBehind="SamlArtifactConsumer.aspx.cs" AutoEventWireup="false" %>
+<%@ Page language="c#" Inherits="SamlArtifactConsumer" CodeFile="SamlArtifactConsumer.aspx.cs" AutoEventWireup="false" %>

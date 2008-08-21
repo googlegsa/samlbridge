@@ -1,4 +1,4 @@
-<%@ Page language="c#" Inherits="gsa.Search" CodeBehind="Search.aspx.cs" AutoEventWireup="false" %>
+<%@ Page language="c#" Inherits="Search" CodeFile="Search.aspx.cs" AutoEventWireup="false" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
 <HTML>
 	<HEAD>

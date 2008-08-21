@@ -9,17 +9,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 
-namespace gsa
-{
+
 	/// <summary>
 	/// Summary description for _Default.
 	/// </summary>
-	public class _Default : System.Web.UI.Page
+	public partial class _Default : System.Web.UI.Page
 	{
-		protected System.Web.UI.WebControls.HyperLink HyperLink1;
-		protected System.Web.UI.WebControls.Label Label1;
-		protected System.Web.UI.WebControls.Image Image1;
-	
+
 		private void Page_Load(object sender, System.EventArgs e)
 		{
 			// Put user code to initialize the page here
@@ -46,4 +42,3 @@ namespace gsa
 		}
 		#endregion
 	}
-}

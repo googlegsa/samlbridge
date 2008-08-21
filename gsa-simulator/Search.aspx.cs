@@ -26,20 +26,11 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Security;
 
-namespace gsa
-{
 	/// <summary>
 	/// Summary description for Search.
 	/// </summary>
-	public class Search : System.Web.UI.Page
+public partial class Search : System.Web.UI.Page
 	{
-		protected System.Web.UI.WebControls.Label Label3;
-		protected System.Web.UI.WebControls.TextBox Resource;
-		protected System.Web.UI.WebControls.Button Button1;
-		protected System.Web.UI.WebControls.Label Label1;
-		protected System.Web.UI.WebControls.Image Image1;
-		protected System.Web.UI.WebControls.Label Label2;
-		protected System.Web.UI.WebControls.Button Button2;
 	
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
@@ -55,7 +46,7 @@ namespace gsa
 			Session.Add("URL", Request.Params["Resource"]);
 			Common.log("URL to test: " + Request.Params["Resource"]);
 			//Response.Write(query);
-			Response.Redirect(Common.AC + "Login.aspx?" + query);
+			Response.Redirect(Common.getAC(Request) + "Login.aspx?" + query);
 		}
 
 		String BuildSamlRequest()
@@ -100,4 +91,3 @@ namespace gsa
 		}
 		#endregion
 	}
-}

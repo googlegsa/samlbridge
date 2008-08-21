@@ -29,12 +29,10 @@ using System.IO;
 using System.Xml;
 using System.Security;
 
-namespace gsa
-{
 	/// <summary>
 	/// Summary description for SamlArtifactConsumer.
 	/// </summary>
-	public class SamlArtifactConsumer : System.Web.UI.Page
+public partial class SamlArtifactConsumer : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, System.EventArgs e)
 		{
@@ -117,4 +115,3 @@ namespace gsa
 		}
 		#endregion
 	}
-}

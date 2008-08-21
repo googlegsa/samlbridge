@@ -22,8 +22,6 @@ using System.Net;
 using System.IO;
 using System.Configuration;
 
-namespace gsa
-{
 	/// <summary>
 	/// Summary description for Common.
 	/// </summary>
@@ -44,12 +42,13 @@ namespace gsa
 
 		public static String GetSamlResolver(HttpRequest Request)
 		{
-			return Common.AC  + "Resolve.aspx";
+			return Common.getAC(Request)  + "Resolve.aspx";
 		}
 		public static String GetAuthorizer(HttpRequest Request)
 		{
-			return Common.AC + "Authz.aspx";
+			return Common.getAC(Request) + "Authz.aspx";
 		}
+
 		public static String FormatNow()
 		{
 			return DateTime.Now.ToUniversalTime().ToString("s", DateTimeFormatInfo.InvariantInfo) + "Z";
@@ -107,15 +106,18 @@ namespace gsa
 			logger.Close();
 		}
 
-		public static String AC
+		public static String getAC(HttpRequest request)
 		{
-			get
-			{
-				String ac = ConfigurationSettings.AppSettings["ac"];
-				if (!ac.EndsWith("/"))
-					ac = ac + "/";
-				return ac;
-			}
+			String ac = ConfigurationSettings.AppSettings["ac"];
+			if (!ac.EndsWith("/"))
+				ac = ac + "/";
+			if (ac.StartsWith("http"))
+                return ac;
+            
+            ac = "http://" + request.Headers["Host"] + ac;
+            Common.log("getAC:: " + ac);
+            return ac;
+                            
 		}
 		public static void printHeader(HttpResponse Response)
 		{
@@ -144,4 +146,3 @@ namespace gsa
 		*/
 	#endregion
 	}
-}

@@ -1,4 +1,4 @@
-<%@ Page language="c#" Codebehind="Authz.aspx.cs" AutoEventWireup="false" Inherits="gsa.Authz" %>
+<%@ Page language="c#" CodeFile="Authz.aspx.cs" AutoEventWireup="false" Inherits="Authz" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
 <HTML>
 	<HEAD>
@@ -8,7 +8,7 @@
 		<meta content="JavaScript" name="vs_defaultClientScript">
 		<meta content="http://schemas.microsoft.com/intellisense/ie5" name="vs_targetSchema">
 	</HEAD>
-	<body MS_POSITIONING="GridLayout">
+	<body>
 		<form id="Form2" action="Authz.aspx" method="post" runat="server">
 			<P><asp:label id="Label4" style="Z-INDEX: 104; LEFT: 88px; POSITION: absolute; TOP: 64px" runat="server"
 					Width="168px" Height="32px">File in the simulator folder</asp:label><asp:textbox id="file" style="Z-INDEX: 103; LEFT: 144px; POSITION: absolute; TOP: 112px" runat="server"
