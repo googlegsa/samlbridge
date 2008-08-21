@@ -14,7 +14,7 @@ namespace SAMLServices
 	/// <summary>
 	/// Summary description for Dump.
 	/// </summary>
-	public class Dump : System.Web.UI.Page
+	public partial class Dump : System.Web.UI.Page
 	{
 		private void Page_Load(object sender, System.EventArgs e)
 		{

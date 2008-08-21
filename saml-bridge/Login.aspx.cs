@@ -34,7 +34,7 @@ namespace SAMLServices
 	/// For silent authentication, this page must not have Anonymous Access enabled,
 	///  and should only have Integrated Windows Authentication enabled.
 	/// </summary>
-	public class Login : System.Web.UI.Page
+    public partial class Login : System.Web.UI.Page
 	{
 		private void Page_Load(object sender, System.EventArgs e)
 		{
@@ -51,7 +51,7 @@ namespace SAMLServices
 				authn.Diagnose();
 				return;
 			}
-			
+            DecodeRequest();
 			String subject = authn.GetUserIdentity();
 			// Get the user's identity (silently, if properly configured).
 			if (subject == null || subject.Equals(""))
@@ -74,11 +74,15 @@ namespace SAMLServices
 			String relayState = Request.Params["RelayState"];
 
 			// Look up the GSA host name (stored in Web.config)
-			String gsa = Common.GSA;
+			String gsa;
 
 			// Encode the relay state for building the redirection URL (back to the GSA)
 			relayState = HttpUtility.UrlEncode(relayState);
 			gsa = Common.GSAArtifactConsumer + "?SAMLart=" + id  + "&RelayState=" + relayState;
+            if (!gsa.StartsWith("http"))
+            {
+                gsa = "http://" + Request.Headers["Host"] + gsa;
+            }
 
 			Common.debug("before Login::redirect");
 			Common.debug(" to: " + gsa);
@@ -97,17 +101,17 @@ namespace SAMLServices
 		/// in .NET Framework 2.0
 		/// </summary>
 		/// <returns></returns>
-/*
+
 		String DecodeRequest()
 		{
 			// Put user code to initialize the page here
 			String samlRequest = Request.Params["SAMLRequest"];
 			//samlRequest = Server.UrlDecode(samlRequest);
-			Common.log("samlRequest = " + samlRequest);
-			samlRequest = Common.Decompress(samlRequest);
+			Common.debug("samlRequest = " + samlRequest);
+            samlRequest = Common.Decompress(Server, samlRequest);
 			if (samlRequest == null)
 			{
-				Common.log("Decompress failed");
+				Common.debug("Decompress failed");
 				return null;
 			}
 			XmlDocument doc = new XmlDocument();
@@ -115,7 +119,7 @@ namespace SAMLServices
 			XmlElement root = doc.DocumentElement; 
 			return root.Attributes["ID"].Value;
 		}
-*/
+
 		#endregion
 		#region Web Form Designer generated code
 		override protected void OnInit(EventArgs e)

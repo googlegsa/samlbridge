@@ -36,7 +36,7 @@ namespace SAMLServices
 	/// This page is called from the GSA to resolve an artifact, and obtain a user's ID.
 	/// It expects to receive a SAML message with the artifact and time stamp.
 	/// </summary>
-	public class Resolve : System.Web.UI.Page
+    public partial class Resolve : System.Web.UI.Page
 	{
 		private void Page_Load(object sender, System.EventArgs e)
 		{

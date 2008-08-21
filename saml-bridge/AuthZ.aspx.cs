@@ -37,7 +37,7 @@ namespace SAMLServices
 	/// This page is called from the GSA to detemine user access to a given URL.
 	/// It expects to receive a SAML message with the URL and user ID.
 	/// </summary>
-	public class AuthZ : System.Web.UI.Page
+	public partial class AuthZ : System.Web.UI.Page
 	{
 		private void Page_Load(object sender, System.EventArgs e)
 		{

@@ -1,1 +1,1 @@
-<%@ Page language="c#" Codebehind="Resolve.aspx.cs" AutoEventWireup="false" Inherits="SAMLServices.Resolve" %>
+<%@ Page language="c#" CodeFile="Resolve.aspx.cs" AutoEventWireup="false" Inherits="SAMLServices.Resolve" %>
