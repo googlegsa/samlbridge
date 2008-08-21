@@ -1,0 +1,61 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\...\gsa-simulator\", "gsa-simulator\", "{E6D9A80C-50D2-45A4-9AD5-A7EB4C8312F1}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/gsa-simulator"
+		Debug.AspNetCompiler.PhysicalPath = "gsa-simulator\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\gsa-simulator\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/gsa-simulator"
+		Release.AspNetCompiler.PhysicalPath = "gsa-simulator\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\gsa-simulator\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1525"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\...\saml-bridge\", "saml-bridge\", "{378701E1-4E96-45DA-B7AE-6275181A2EF8}"
+	ProjectSection(WebsiteProperties) = preProject
+		Debug.AspNetCompiler.VirtualPath = "/saml-bridge"
+		Debug.AspNetCompiler.PhysicalPath = "saml-bridge\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\saml-bridge\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/saml-bridge"
+		Release.AspNetCompiler.PhysicalPath = "saml-bridge\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\saml-bridge\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "2876"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|.NET = Debug|.NET
+		Release|.NET = Release|.NET
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6D9A80C-50D2-45A4-9AD5-A7EB4C8312F1}.Debug|.NET.ActiveCfg = Debug|.NET
+		{E6D9A80C-50D2-45A4-9AD5-A7EB4C8312F1}.Debug|.NET.Build.0 = Debug|.NET
+		{E6D9A80C-50D2-45A4-9AD5-A7EB4C8312F1}.Release|.NET.ActiveCfg = Debug|.NET
+		{E6D9A80C-50D2-45A4-9AD5-A7EB4C8312F1}.Release|.NET.Build.0 = Debug|.NET
+		{378701E1-4E96-45DA-B7AE-6275181A2EF8}.Debug|.NET.ActiveCfg = Debug|.NET
+		{378701E1-4E96-45DA-B7AE-6275181A2EF8}.Debug|.NET.Build.0 = Debug|.NET
+		{378701E1-4E96-45DA-B7AE-6275181A2EF8}.Release|.NET.ActiveCfg = Debug|.NET
+		{378701E1-4E96-45DA-B7AE-6275181A2EF8}.Release|.NET.Build.0 = Debug|.NET
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
