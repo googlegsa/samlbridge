@@ -40,6 +40,13 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\...\saml-bridge\", "saml
 		VWDPort = "2876"
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0C56AB6D-24B4-45EB-92CD-8E19C064F760}"
+	ProjectSection(SolutionItems) = preProject
+		COPYING = COPYING
+		README.TXT = README.TXT
+		RELEASE_NOTE.txt = RELEASE_NOTE.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET

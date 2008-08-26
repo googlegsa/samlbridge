@@ -1,0 +1,33 @@
+RELEASE NOTES FOR SAML BRIDGE
+
+
+version 1.5
+
+Summary:
+This version was built using Microsoft Visual Studio 2005. There are quite some differences in the binary output. If you are upgrading, you need to clean up the 
+existing folders and copy over the new ones.
+If you'd like to build from source code, you'll need Microsoft Visual Studio 2005. Previous releases were built using Visual Studio 2003.
+
+Problems fixed:
+#8, Saml Bridge throws an exception when performing an authz check on a folder/directory. Now SAML Bridge checks file's ACL instead of trying to open a file or folder.
+#9, Saml Bridge throws an exception when performing an authz check on a file in use 
+
+Features added:
+Version 1.5 allows error pages or error codes to be used when something goes wrong. For example, some applications use IIS plugin so that when user is not authorized, 
+he/she will be redirected to an error page. Previous versions couldn't detect this type of denial. Now you can configure the SAML Bridge to recognize such permission
+denial.
+
+version 1.0.3
+Problem fixed: 
+Issue #6, SAML Bridge throws an exception for URL encoded smb URLs
+Issue #7, User gets non-accessible pages in search results when the deny means redirect the user to another page.   	
+
+version 1.0.2
+Problem fixed: 
+Issue #2, XML characters in user name, domain name, file name, directory 
+Issue #3, multiple threads writing to ac.log
+
+version 1.0.1
+Problem fixed: 
+Issue #1, duplicat IDs in xml response
+
