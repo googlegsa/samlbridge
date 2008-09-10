@@ -51,7 +51,6 @@ namespace SAMLServices
 				authn.Diagnose();
 				return;
 			}
-            DecodeRequest();
 			String subject = authn.GetUserIdentity();
 			// Get the user's identity (silently, if properly configured).
 			if (subject == null || subject.Equals(""))
@@ -102,7 +101,7 @@ namespace SAMLServices
 		/// </summary>
 		/// <returns></returns>
 
-		String DecodeRequest()
+/*		String DecodeRequest()
 		{
 			// Put user code to initialize the page here
 			String samlRequest = Request.Params["SAMLRequest"];
@@ -119,7 +118,7 @@ namespace SAMLServices
 			XmlElement root = doc.DocumentElement; 
 			return root.Attributes["ID"].Value;
 		}
-
+*/
 		#endregion
 		#region Web Form Designer generated code
 		override protected void OnInit(EventArgs e)

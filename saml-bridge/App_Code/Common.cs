@@ -283,7 +283,7 @@ namespace SAMLServices
 
 		#region Decompression requires .NET Framework v 2.0
 
-		public static String Decompress(HttpServerUtility server, String samlRequest)
+		/*public static String Decompress(HttpServerUtility server, String samlRequest)
 		{
 			//base64 decode
 			try
@@ -318,7 +318,7 @@ namespace SAMLServices
 				return null;
 			}
 		}
-
+    */
 		#endregion
 	}
 }

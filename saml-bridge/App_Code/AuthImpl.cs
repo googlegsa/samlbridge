@@ -173,9 +173,9 @@ namespace SAMLServices.Wia
 				Common.debug("AuthImpl::caught WebException");
 				// Determine what sort of exception was thrown by checking the response status
 				Common.debug("e = " + e.ToString());
-				Common.debug("resp = " + e.Response);
 				HttpWebResponse resp = (HttpWebResponse)((WebException)e).Response;
-				if (resp != null)
+				
+                if (resp != null)
 					Common.debug("status = " + resp.StatusCode.ToString());
 				else
 				{
@@ -183,30 +183,18 @@ namespace SAMLServices.Wia
 					status = "Indeterminate";
 					return status;
 				}
-				// If an "unauthorized" response was received, set AuthZ decision to "Deny"
-				if (resp.StatusCode == HttpStatusCode.Unauthorized)
-					status = "Deny";
-					// Accepted, Continue, or Redirect responses indicate authorized access
-				else if (resp.StatusCode == HttpStatusCode.Accepted 
-					|| resp.StatusCode == HttpStatusCode.Continue
-					|| resp.StatusCode == HttpStatusCode.Redirect)
-					status = "Permit";
-					// Some other response error occured
-					// Setting the AuthZ decision to "Indeterminate" allows the GSA to use other
-					// AuthZ methods (i.e. Basic, NTLM, SSO) to determine access
-				else
-					status = "Indeterminate";
+				status = "Deny";
 			}
 			catch(UnauthorizedAccessException e) //can't write to the log file
 			{
-				if( wic != null)
+                if (wic != null)
 				{
 					wic.Undo();
 					wic = null;
 				}
                 Common.debug("caught UnauthorizedAccessException");
-				Common.debug(e.Message);
-				status = "Deny";
+                Common.debug(e.Message);
+                status = "Deny";
 			}
 			catch(Exception e)
 			{
@@ -259,9 +247,14 @@ namespace SAMLServices.Wia
 			HttpWebResponse response  = (HttpWebResponse)web.GetResponse();
 			if (Common.LOG_LEVEL == Common.DEBUG)
 			{
+                Common.debug("let's see what we've got, the response page is: ");
+                web.Method = "GET";
+                response = (HttpWebResponse) web.GetResponse();
 				Stream responseStream = response.GetResponseStream();
 				StreamReader reader = new StreamReader (responseStream);
 				String res = reader.ReadToEnd ();
+                Common.debug(res);
+                Common.debug("end of response");
 				responseStream.Close();
 			}
 			return Common.handleDeny(response);
