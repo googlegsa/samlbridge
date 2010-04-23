@@ -44,6 +44,8 @@ namespace SAMLServices
 		public static String ID="ID";
 		public static String AuthNResponseTemplate = null;
 		public static String AuthZResponseTemplate = null;
+        public static String AuthZResponseSopaEnvelopeStart = null;
+        public static String AuthZResponseSopaEnvelopeEnd = null;
 		public static String LogFile = null;
 		public static bool bDebug = false;
 		public static String artifactConsumer = null;
@@ -168,10 +170,22 @@ namespace SAMLServices
 		/// <returns></returns>
 		public static XmlNode FindOnly(XmlDocument doc, String name)
 		{
-			XmlNodeList list = doc.GetElementsByTagName(name, Common.SAML_NAMESPACE);
+			XmlNodeList list = FindAllElements(doc, name);
 			return list.Item(0);
 		}
 
+        /// <summary>
+        /// Method to obtain a List of XML elements within an XMLDocument,
+        /// given the element name.
+        /// </summary>
+        /// <param name="doc">Xml Document</param>
+        /// <param name="name">element name to be found</param>
+        /// <returns>List of XML Elements with matcing name</returns>
+        public static XmlNodeList FindAllElements(XmlDocument doc, String name)
+        {
+            XmlNodeList list = doc.GetElementsByTagName(name, Common.SAML_NAMESPACE);
+            return list;
+        }
 		
 		/// <summary>
 		/// Method to add an XML attribute to an element

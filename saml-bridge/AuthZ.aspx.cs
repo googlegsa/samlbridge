@@ -29,6 +29,7 @@ using System.Web.UI.HtmlControls;
 using System.Security.Principal;
 using System.Net;
 using System.Security;
+using System.Collections.Generic;
 
 namespace SAMLServices
 {
@@ -43,7 +44,7 @@ namespace SAMLServices
 		{
 			Common.debug("inside Authz::Page_Load");
 			// Extract the URL and user ID from the SAML message
-			String[] resp = ExtractRequest();
+			Object[] resp = ExtractRequest();
 			if (resp == null)
 			{
 				Common.printHeader(Response);
@@ -54,18 +55,18 @@ namespace SAMLServices
 				return;
 			}
 			// Check authorization and respond
-			Authorize(resp[0], resp[1]);
+			Authorize((string) resp[0], (List<string>) resp[1]);
 		}
 
 		/// <summary>
 		///  Method to extract the core information from the SAML message,
 		///  specifically the URL and user ID of the request.
 		/// </summary>
-		/// <returns>Two element string array, the first is subject, the second is URL</returns>
-		String[] ExtractRequest()
+		/// <returns>Two element string array, the first is subject, the second is URL List</returns>
+		Object[] ExtractRequest()
 		{
 			Common.debug("inside Authz::ExtractRequest");
-			String [] resp = new String[2];
+			Object[] resp = new Object[2];
 
 			// Get the SAML message (in String form) from the HTTP request
 			String req = Common.ReadRequest(Request);
@@ -97,9 +98,24 @@ namespace SAMLServices
 			resp[0] = sub.ChildNodes[0].InnerText;
 			Common.debug("subject=" + resp[0]);
 			// The URL is in the Resource attribute of the AuthzDecisionQuery node
-			XmlNode urlNode = Common.FindOnly(doc, "AuthzDecisionQuery");
-			resp[1]= urlNode.Attributes["Resource"].Value;
-			Common.debug(resp[1]);
+			XmlNodeList urlNodeList = Common.FindAllElements(doc, "AuthzDecisionQuery");
+            List<string> urls = new List<string>();
+            foreach (XmlNode urlNode in urlNodeList)
+            {
+                string url = urlNode.Attributes["Resource"].Value;
+                Common.debug("URL To authorize: " + url);
+                if (url == null || url.Trim().Length <= 0)
+                {
+                    Common.error("Resource URL is null or empty");
+                }
+                else
+                {
+                    urls.Add(url);
+                }
+            }
+
+			resp[1]= urls;
+			Common.debug("AuthZ batch size = " + urls.Count);
 			return resp;
 		}
 
@@ -131,9 +147,39 @@ namespace SAMLServices
 			// Insert the authorization decision into the response
 			req = req.Replace("%DECISION", sStatus);
 			Common.debug("Authorization response: " + req);
-			Response.ContentType = "text/xml";
 			Response.Write(req);			
 		}
+
+        /// <summary>
+        ///
+        ///Method to determin user's privileges to access the given URL.
+        ///AuthZ decision is determined, the responding SAML AuthZ message is built and sent.
+        /// </summary>
+        /// <param name="subject"></param>
+        /// <param name="url"></param>
+        void Authorize(String subject, List<string> urls)
+        {
+            Common.debug("inside Authz::Authorize::Checking AuthZ for each url");
+            Response.ContentType = "text/xml";
+            Response.Write(Common.AuthZResponseSopaEnvelopeStart);
+
+            //TODO - Need to investigate further. Sequential processing can be time consuming
+            //and can potentially cause GSA AuthZ request timeouts (timeout can be increased)
+            //This can be done using a multithreaded approach
+            //But use of ThreadPool is discouraged in ASP.NET as it might lead to 
+            //queuing of requests if many threads are used up by a few requests
+            //Spawning new threads manually can be risky as it can lead 
+            //to creation of too many threads, 
+            //delayed response and sometimes unpredicatble behavior (unmanaged threads)
+            foreach (string url in urls)
+            {
+                Common.debug("inside Authz::Authorize::Checking AuthZ for url: " + url);
+                Authorize(subject, url);
+            }
+
+            Response.Write(Common.AuthZResponseSopaEnvelopeEnd);
+            Common.debug("inside Authz::Authorize::Authz of all Urls completed");
+        }
 
 		#region Web Form Designer generated code
 		override protected void OnInit(EventArgs e)

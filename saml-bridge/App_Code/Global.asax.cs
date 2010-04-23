@@ -47,11 +47,22 @@ namespace SAMLServices
 			StreamReader reader = new StreamReader(fs);
 			Common.AuthNResponseTemplate = reader.ReadToEnd();
 			fs.Close();
-			template = Server.MapPath("AuthzResponse.xml");
+			template = Server.MapPath("AuthzResponseNode.xml");
 			fs = new FileStream(template, FileMode.Open,FileAccess.Read);
 			reader = new StreamReader(fs);
 			Common.AuthZResponseTemplate = reader.ReadToEnd();
 			fs.Close();
+            template = Server.MapPath("AuthzResponseSoapEnvelopeStart.xml");
+            fs = new FileStream(template, FileMode.Open, FileAccess.Read);
+            reader = new StreamReader(fs);
+            Common.AuthZResponseSopaEnvelopeStart = reader.ReadToEnd();
+            fs.Close();
+            template = Server.MapPath("AuthzResponseSoapEnvelopeEnd.xml");
+            fs = new FileStream(template, FileMode.Open, FileAccess.Read);
+            reader = new StreamReader(fs);
+            Common.AuthZResponseSopaEnvelopeEnd = reader.ReadToEnd();
+            fs.Close();
+
 			String level = ConfigurationSettings.AppSettings["log_level"];
 			Common.GSAArtifactConsumer = ConfigurationSettings.AppSettings["artifact_consumer"];
 			if (level!= null )
