@@ -1,5 +1,13 @@
 RELEASE NOTES FOR SAML BRIDGE
 
+version 2.0
+Since GSA 6.4, the legacy SAML AuthN SPI is replaced by Security Manager SPI. This version is compatible with GSA 6.4 Security Manager based SPI.
+It also supports Bulk Authorization feature.
+
+Problems Fixed:
+Issue #11, decode request failed (fixed in 1.5.1)
+Issue #12, Support Batch AuthZ
+Issue #16, SAML Bridge 1.6 or lower is not compatible with new Security Manager SPI in GSA 6.4
 
 version 1.5
 
