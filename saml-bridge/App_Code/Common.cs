@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2006 Google Inc.
+ * Copyright (C) 2006-2010 Google Inc.
  * 
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not
  * use this file except in compliance with the License. You may obtain a copy of
@@ -37,11 +37,14 @@ namespace SAMLServices
 	{
 		// String to hold the SAML namespace declaration
 		public static String SAML_NAMESPACE = "urn:oasis:names:tc:SAML:2.0:protocol";
+        public static String SAML_NAMESPACE_ASSERTION = "urn:oasis:names:tc:SAML:2.0:assertion";
 		// String used as prefix for artifacts
 		public static String ARTIFACT = "Artifact";
 		// SAML element name when resolving artifacts
 		public static String ArtifactResolve = "ArtifactResolve";
 		public static String ID="ID";
+        //String used to identiy the Issuer Node
+        public static String ISSUER = "Issuer";
 		public static String AuthNResponseTemplate = null;
 		public static String AuthZResponseTemplate = null;
         public static String AuthZResponseSopaEnvelopeStart = null;
@@ -128,7 +131,7 @@ namespace SAMLServices
 		/// <returns>Universal time format</returns>
 		public static String FormatInvariantTime(DateTime time)
 		{
-			return time.ToString("s", DateTimeFormatInfo.CurrentInfo) + "Z";
+			return time.ToUniversalTime().ToString("s", DateTimeFormatInfo.InvariantInfo) + "Z";
 		}
 
 		/// <summary>
@@ -183,7 +186,7 @@ namespace SAMLServices
         /// <returns>List of XML Elements with matcing name</returns>
         public static XmlNodeList FindAllElements(XmlDocument doc, String name)
         {
-            XmlNodeList list = doc.GetElementsByTagName(name, Common.SAML_NAMESPACE);
+            XmlNodeList list = doc.GetElementsByTagName(name,name.Equals(Common.ISSUER)?Common.SAML_NAMESPACE_ASSERTION:Common.SAML_NAMESPACE);
             return list;
         }
 		
@@ -297,42 +300,24 @@ namespace SAMLServices
 
 		#region Decompression requires .NET Framework v 2.0
 
-		/*public static String Decompress(HttpServerUtility server, String samlRequest)
-		{
-			//base64 decode
-			try
-			{
-                //Common.log("samlRequest before urldecode: " + samlRequest);
-                //samlRequest = server.UrlDecode(samlRequest);
-				Common.log("before base64 decode string: " + samlRequest);
-				byte[] decData = Convert.FromBase64String(samlRequest);
-                System.Text.Encoding enc = System.Text.Encoding.ASCII;
-                string decoded = enc.GetString(decData);
+        public static String Decompress(HttpServerUtility server, String samlRequest)
+        {
+            byte[] b = Convert.FromBase64String(samlRequest);
 
-                Common.log("after base64 decode: " + decoded );
-				//compress inflate
-				GZipStream zipStream = new GZipStream(new MemoryStream(decData), CompressionMode.Decompress);
-				MemoryStream ms = new MemoryStream();
-				byte []writeData = new byte[1096];
-				int size = -1;
-				while (true)
-				{
-					size = zipStream.Read(writeData, 0, writeData.Length);
-					if (size > 0)
-						ms.Write(writeData, 0, size) ;
-					else
-						break;
-				}
-				ms.Close();
-				return System.Text.Encoding.UTF8.GetString(ms.ToArray()); 
-			}
-			catch(Exception e)
-			{
-				Common.log(e.Message);
-				return null;
-			}
-		}
-    */
+            using (MemoryStream inputStream = new MemoryStream(b))
+            {
+                using (DeflateStream gzip =
+                  new DeflateStream(inputStream, CompressionMode.Decompress))
+                {
+                    using (StreamReader reader =
+                      new StreamReader(gzip, System.Text.Encoding.UTF8))
+                    {
+                        return reader.ReadToEnd();
+                    }
+                }
+            }
+        }
+
 		#endregion
 	}
 }

@@ -1,4 +1,5 @@
-﻿<SOAP-ENV:Envelope
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope
   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
   <SOAP-ENV:Body>
     <samlp:ArtifactResponse
@@ -12,7 +13,7 @@
         <samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:%STATUS"/>
       </samlp:Status>
       <samlp:Response
-        ID="%RESPONSE_ID"
+        ID="%REQID"
         Version="2.0"
         IssueInstant="%INSTANT">
         <samlp:Status>
@@ -23,16 +24,22 @@
           Version="2.0"
           ID="%ASSERTION_ID"
           IssueInstant="%INSTANT">
-          <Issuer>"%ISSUER"</Issuer>
+          <Issuer>%ISSUER</Issuer>
           <Subject>
             <NameID>%SUBJECT</NameID>
+            <SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer">
+              <SubjectConfirmationData InResponseTo="%AUTHN_REQUEST_ID"  Recipient="%RECIPIENT" NotOnOrAfter="%NOT_ON_OR_AFTER"/>
+            </SubjectConfirmation>
           </Subject>
+          <Conditions NotBefore="%INSTANT" NotOnOrAfter="%NOT_ON_OR_AFTER">
+            <AudienceRestriction>
+              <Audience>%AUDIENCE_RESTRICTION</Audience>
+            </AudienceRestriction>
+          </Conditions>          
           <AuthnStatement
-            AuthnInstant="%INSTANT">
+            AuthnInstant="%INSTANT" SessionIndex="%SESSION_INDEX">
             <AuthnContext>
-              <AuthnContextClassRef>
-                urn:oasis:names:tc:SAML:2.0:ac:classes:%CLASS
-              </AuthnContextClassRef>
+              <AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:%CLASS</AuthnContextClassRef>
             </AuthnContext>
           </AuthnStatement>
         </Assertion>
