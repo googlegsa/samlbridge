@@ -56,15 +56,13 @@ public partial class Search : System.Web.UI.Page
 			String req = Common.SamlRequestTemplate;
 			req = req.Replace("%ID", Common.GenerateRandomString());
 			req = req.Replace("%INSTANT", Common.FormatNow());
+            req = req.Replace("%ISSUER", Server.MachineName);
 			Common.log("request before encoding=" + req);
-			byte[] decData = new System.Text.UTF8Encoding().GetBytes(req);
-			Common.log("before deflate length=" + decData.Length);
-			//for simulation, we don't compress because in AC, the data is not used anyway.
-            /*byte[] compressData = Common.Compress(decData);
-			//encode
-			String encoded = Convert.ToBase64String(compressData);
-			*/
-			String encoded = Convert.ToBase64String(decData);
+			//byte[] decData = new System.Text.UTF8Encoding().GetBytes(req);
+			Common.log("before deflate length=" + req.Length);
+
+            String encoded = Common.Compress(req);
+            
 			Common.log("base64 encoded string: " + encoded);
             return HttpUtility.UrlEncode(encoded);
 		}

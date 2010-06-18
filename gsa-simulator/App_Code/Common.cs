@@ -21,6 +21,7 @@ using System.Web;
 using System.Net;
 using System.IO;
 using System.Configuration;
+using System.IO.Compression;
 
 	/// <summary>
 	/// Summary description for Common.
@@ -130,19 +131,25 @@ using System.Configuration;
 			Response.Write("</body></html>");
 		}
 
-		#region required .NET 2.0
-		/*
-        public static byte[] Compress(byte[] input)
+        #region Decompression requires .NET Framework v 2.0
+
+        public static String Compress(String samlRequest)
         {
-            MemoryStream ms = new MemoryStream();
-            // Use the newly created memory stream for the compressed data.
-            GZipStream compressedzipStream = new GZipStream(ms, CompressionMode.Compress, true);
-            compressedzipStream.Write(input, 0, input.Length);
-            // Close the stream.
-            compressedzipStream.Close();
-            long a = ms.Length;
-            return ms.ToArray();
+            byte[] compressedData;
+            using (MemoryStream output = new MemoryStream())
+            {
+                using (DeflateStream gzip = new DeflateStream(output, CompressionMode.Compress))
+                {
+                    using (StreamWriter writer = new StreamWriter(gzip, System.Text.Encoding.UTF8))
+                    {
+                        writer.Write(samlRequest);
+                    }
+                }
+
+                compressedData = output.ToArray();
+            }
+            return Convert.ToBase64String(compressedData);
         }
-		*/
-	#endregion
+
+        #endregion
 	}

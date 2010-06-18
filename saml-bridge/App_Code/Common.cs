@@ -25,8 +25,9 @@ using System.IO.Compression;
 using System.Security.Principal;
 using System.Configuration;
 using System.Collections;
-
-//using System.IO.Compression;
+using System.Security;
+using System.ComponentModel;
+using System.Data;
 
 namespace SAMLServices
 {
@@ -52,6 +53,7 @@ namespace SAMLServices
 		public static String LogFile = null;
 		public static bool bDebug = false;
 		public static String artifactConsumer = null;
+        public static String idpEntityId = null;
 		public static Type provider = typeof (SAMLServices.Wia.AuthImpl);
 		public static int DEBUG=0, INFO=1, ERROR=2;
 		public static int LOG_LEVEL  = INFO;
@@ -122,6 +124,29 @@ namespace SAMLServices
 				artifactConsumer = value;
 			}
 		}
+
+
+        /// <summary>
+        /// Method to determine the IDP Entity ID
+        /// </summary>
+        public static String IDPEntityId
+        {
+            get
+            {
+                return idpEntityId;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    idpEntityId = value.Trim();
+                }
+                else
+                {
+                    idpEntityId = "";
+                }
+            }
+        }
 
 		/// <summary>
 		///  Method to obtain the current time, converted

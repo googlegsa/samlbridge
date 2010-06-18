@@ -142,9 +142,21 @@ namespace SAMLServices
             DateTime currentTimeStamp = DateTime.Now;
 			req = req.Replace("%INSTANT", Common.FormatInvariantTime(currentTimeStamp));
             req = req.Replace("%NOT_ON_OR_AFTER", Common.FormatInvariantTime(currentTimeStamp.AddSeconds(5)));
-			req = req.Replace("%ISSUER", SecurityElement.Escape(Server.MachineName));
-			req = req.Replace("%MESSAGE_ID", Common.GenerateRandomString());
-			//req = req.Replace("%RESPONSE_ID", Common.GenerateRandomString());
+
+            String idpEntityId;
+            if(Common.IDPEntityId.Length>0)
+            {
+                idpEntityId = Common.IDPEntityId;
+            }
+            else
+            {
+                Common.debug("IDP Entity ID is not set in config. Using machine name as default");
+                idpEntityId = SecurityElement.Escape(Server.MachineName.Trim());
+            }
+            Common.debug("IDP Entity ID used as Issuer is: " + idpEntityId);
+            req = req.Replace("%ISSUER", idpEntityId);
+
+            req = req.Replace("%MESSAGE_ID", Common.GenerateRandomString());
 			req = req.Replace("%ASSERTION_ID", Common.GenerateRandomString());
             req = req.Replace("%SESSION_INDEX", Common.GenerateRandomString());
 			req = req.Replace("%STATUS", "Success");

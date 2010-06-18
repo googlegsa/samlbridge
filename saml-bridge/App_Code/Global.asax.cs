@@ -65,6 +65,7 @@ namespace SAMLServices
 
 			String level = ConfigurationSettings.AppSettings["log_level"];
 			Common.GSAArtifactConsumer = ConfigurationSettings.AppSettings["artifact_consumer"];
+            Common.IDPEntityId = ConfigurationSettings.AppSettings["idp_entity_id"];
 			if (level!= null )
 			{
 				if (level.ToLower().Equals("debug"))

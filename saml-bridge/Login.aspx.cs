@@ -44,22 +44,24 @@ namespace SAMLServices
 			// create an IAutn instance
 			IAuthn authn = AAFactory.getAuthn(this);
 
-            //Decode request and extract the 
-            String AuthNRequestId = ExtractAuthNRequestId();
-            if (AuthNRequestId == null || AuthNRequestId.Equals(""))
-            {
-                Common.error("Couldn't extract AuthN Request Id from SAMLRequest");
-                throw new Exception("Failed to extract AuthN Request Id from SAML Request");
-            }
-            Common.debug("Extracted AuthNRequestId is :" + AuthNRequestId);
-
             String samlRequest = Request.Params["SAMLRequest"];			
 			if (samlRequest == null || "".Equals(samlRequest) ) 
 			{
 				authn.Diagnose();
 				return;
 			}
-			String subject = authn.GetUserIdentity();
+
+            //Decode request and extract the AuthNRequestId
+            String AuthNRequestId = ExtractAuthNRequestId(samlRequest);
+            if (AuthNRequestId == null || AuthNRequestId.Equals(""))
+            {
+                Common.error("Couldn't extract AuthN Request Id from SAMLRequest");
+                throw new Exception("Failed to extract AuthN Request Id from SAML Request");
+            }
+            Common.debug("Extracted AuthNRequestId is :" + AuthNRequestId);
+            
+            
+            String subject = authn.GetUserIdentity();
 			// Get the user's identity (silently, if properly configured).
 			if (subject == null || subject.Equals(""))
 			{
@@ -110,11 +112,8 @@ namespace SAMLServices
 		/// Extracts the Authn request ID from the SAML Request parameter
 		/// </summary>
 		/// <returns></returns>
-        String ExtractAuthNRequestId()
+        String ExtractAuthNRequestId(String samlRequest)
 		{
-			// Put user code to initialize the page here
-			String samlRequest = Request.Params["SAMLRequest"];
-			//samlRequest = Server.UrlDecode(samlRequest);
 			Common.debug("samlRequest = " + samlRequest);
             samlRequest = Common.Decompress(Server, samlRequest);
             Common.debug("samlRequest decoded = " + samlRequest);
