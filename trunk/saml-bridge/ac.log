@@ -1,0 +1,610 @@
+7/9/2008 9:05:33 AM, Page_Load: before Login::entering pageload
+7/9/2008 9:05:33 AM, getAuthn: Authentication provider is SAMLServices.Wia.AuthImpl
+7/9/2008 9:05:33 AM, DecodeRequest: samlRequest = fZJNT8JAEIbvJv6Hzd77AYmKG1qCECIJagPVg7elnYUN+1F3tqD/3lIg4EGu8/U+78z0B99akS04lNYktBPGlIApbCnNKqHv+STo0UF6e9NHrlXFhrVfmzl81YCeNJ0GWZtIaO0MsxwlMsM1IPMFWwxfZqwbxqxy1tvCKkqm44TaUsHSVCuhlZaiklrYpRCq2iybTLnZiHJtNpXVlHycsLp7rCliDVODnhvfhOK4F8QPQfyYd+5ZfMe63U9KsqPSkzQHB9ewlociZM95ngXZ2yJvB2xlCe61qU7oytqVgrDYwwwRwfkGZ2QN1hrcAtxWFvA+nyV07X2FLIp2u114borWFj2UES9wj59xRLltxgquEGja7pS1ttzFMq9D8xMGTc9C/ehiVHq81d7CdJxZJYsfMlTK7kYOuG/0vauBkol1mvv/1Tphp43IMhBtKasNVlBIIaGkJEoPqn+fonmVXw==
+7/9/2008 9:05:33 AM, DecodeRequest: samlRequest before urldecode: fZJNT8JAEIbvJv6Hzd77AYmKG1qCECIJagPVg7elnYUN+1F3tqD/3lIg4EGu8/U+78z0B99akS04lNYktBPGlIApbCnNKqHv+STo0UF6e9NHrlXFhrVfmzl81YCeNJ0GWZtIaO0MsxwlMsM1IPMFWwxfZqwbxqxy1tvCKkqm44TaUsHSVCuhlZaiklrYpRCq2iybTLnZiHJtNpXVlHycsLp7rCliDVODnhvfhOK4F8QPQfyYd+5ZfMe63U9KsqPSkzQHB9ewlociZM95ngXZ2yJvB2xlCe61qU7oytqVgrDYwwwRwfkGZ2QN1hrcAtxWFvA+nyV07X2FLIp2u114borWFj2UES9wj59xRLltxgquEGja7pS1ttzFMq9D8xMGTc9C/ehiVHq81d7CdJxZJYsfMlTK7kYOuG/0vauBkol1mvv/1Tphp43IMhBtKasNVlBIIaGkJEoPqn+fonmVXw==
+7/9/2008 9:05:33 AM, DecodeRequest: before base64 decode string: fZJNT8JAEIbvJv6Hzd77AYmKG1qCECIJagPVg7elnYUN 1F3tqD/3lIg4EGu8/U 78z0B99akS04lNYktBPGlIApbCnNKqHv STo0UF6e9NHrlXFhrVfmzl81YCeNJ0GWZtIaO0MsxwlMsM1IPMFWwxfZqwbxqxy1tvCKkqm44TaUsHSVCuhlZaiklrYpRCq2iybTLnZiHJtNpXVlHycsLp7rCliDVODnhvfhOK4F8QPQfyYd 5ZfMe63U9KsqPSkzQHB9ewlociZM95ngXZ2yJvB2xlCe61qU7oytqVgrDYwwwRwfkGZ2QN1hrcAtxWFvA nyV07X2FLIp2u114borWFj2UES9wj59xRLltxgquEGja7pS1ttzFMq9D8xMGTc9C/ehiVHq81d7CdJxZJYsfMlTK7kYOuG/0vauBkol1mvv/1Tphp43IMhBtKasNVlBIIaGkJEoPqn fonmVXw==
+7/9/2008 9:05:33 AM, DecodeRequest: Invalid length for a Base-64 char array.
+7/9/2008 9:05:33 AM, DecodeRequest: Decompress failed
+7/9/2008 9:05:33 AM, Page_Load: The user is: sales-admin@ENT-SALES-D1
+7/9/2008 9:05:33 AM, Page_Load: before Login::redirect
+7/9/2008 9:05:33 AM, Page_Load:  to: https://172.18.8.225/SamlArtifactConsumer?SAMLart=a16714ee73928475480eac534676166b3&RelayState=%2fsearch%3fq%3dtest%26access%3da%26entqr%3d0%26output%3dxml_no_dtd%26sort%3ddate%253AD%253AL%253Ad1%26client%3ddefault_frontend%26ud%3d1%26oe%3dUTF-8%26ie%3dUTF-8%26proxystylesheet%3ddefault_frontend%26site%3ddefault_collection
+7/9/2008 9:05:34 AM, Page_Load: inside ResolveArt::Page_Load
+7/9/2008 9:05:34 AM, ExtractInfo: inside ResolveArt::ExtractInfo
+7/9/2008 9:05:34 AM, ExtractInfo: request from GSA=<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><samlp:ArtifactResolve ID="bnlabmkjhcgcihmdlpphdpcmmbpdogacidmfmanl" IssueInstant="2008-07-09T16:05:24Z" Version="2.0" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"><saml:Issuer xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion">google.com</saml:Issuer><samlp:Artifact>a16714ee73928475480eac534676166b3</samlp:Artifact></samlp:ArtifactResolve></soapenv:Body></soapenv:Envelope>
+7/9/2008 9:05:34 AM, ExtractInfo: exit ResolveArt::ExtractInfo
+7/9/2008 9:05:34 AM, GetSubject: inside GetSubject
+7/9/2008 9:05:34 AM, BuildResponse: inside BuildResponse
+7/9/2008 9:05:34 AM, BuildResponse: exit BuildResponse
+7/9/2008 9:05:34 AM, Page_Load: Authentication response=<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Body><samlp:ArtifactResponse xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" xmlns="urn:oasis:names:tc:SAML:2.0:assertion" ID="af7bc7e9d3d58411585472c7ea825df3a" Version="2.0" InResponseTo="bnlabmkjhcgcihmdlpphdpcmmbpdogacidmfmanl" IssueInstant="2008-07-09T09:05:34Z"><Issuer>CLARK</Issuer><samlp:Status><samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" /></samlp:Status><samlp:Response ID="a27319f1b3a5a4049b71a0eaeb10193bf" Version="2.0" IssueInstant="2008-07-09T09:05:34Z"><samlp:Status><samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success" /></samlp:Status><Assertion Version="2.0" ID="a982a245f1db54eadbeed08c0842253b8" IssueInstant="2008-07-09T09:05:34Z"><Issuer>"CLARK"</Issuer><Subject><NameID>sales-admin@ENT-SALES-D1</NameID></Subject><AuthnStatement AuthnInstant="2008-07-09T09:05:34Z"><AuthnContext><AuthnContextClassRef>
+                urn:oasis:names:tc:SAML:2.0:ac:classes:InternetProtocol
+              </AuthnContextClassRef></AuthnContext></AuthnStatement></Assertion></samlp:Response></samlp:ArtifactResponse></SOAP-ENV:Body></SOAP-ENV:Envelope>
+7/9/2008 9:05:34 AM, Page_Load: inside Authz::Page_Load
+7/9/2008 9:05:34 AM, ExtractRequest: inside Authz::ExtractRequest
+7/9/2008 9:05:34 AM, ExtractRequest: The AuthZ request is: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><samlp:AuthzDecisionQuery ID="kcacgmcfajdihhbmkgnjdgmfmnfneknbccgeciil" IssueInstant="2008-07-09T16:05:25Z" Resource="http://soto.corp.google.com/Style%20Library/XSL%20Style%20Sheets/ContentQueryMain.xsl" Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"><saml:Issuer>google.com</saml:Issuer><saml:Subject><saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID></saml:Subject><saml:Action Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">GET</saml:Action></samlp:AuthzDecisionQuery></soapenv:Body></soapenv:Envelope>
+7/9/2008 9:05:34 AM, ExtractRequest: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:34 AM, ExtractRequest: http://soto.corp.google.com/Style%20Library/XSL%20Style%20Sheets/ContentQueryMain.xsl
+7/9/2008 9:05:34 AM, Page_Load: inside Authz::Page_Load
+7/9/2008 9:05:34 AM, ExtractRequest: inside Authz::ExtractRequest
+7/9/2008 9:05:34 AM, ExtractRequest: The AuthZ request is: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><samlp:AuthzDecisionQuery ID="bemeoigeodnlnddmonobdmmebhhognemhoblfadp" IssueInstant="2008-07-09T16:05:25Z" Resource="http://soto.corp.google.com/_vti_bin/expurlwp.aspx?FileName=SearchActionLinks.webpart" Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"><saml:Issuer>google.com</saml:Issuer><saml:Subject><saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID></saml:Subject><saml:Action Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">GET</saml:Action></samlp:AuthzDecisionQuery></soapenv:Body></soapenv:Envelope>
+7/9/2008 9:05:34 AM, Authorize: inside Authz::Authorize
+7/9/2008 9:05:34 AM, ExtractRequest: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:34 AM, ExtractRequest: http://soto.corp.google.com/_vti_bin/expurlwp.aspx?FileName=SearchActionLinks.webpart
+7/9/2008 9:05:34 AM, Authorize: inside Authz::Authorize
+7/9/2008 9:05:34 AM, GetPermission: inside AuthImpl::GetPermission
+7/9/2008 9:05:34 AM, GetPermission: url=http://soto.corp.google.com/Style%20Library/XSL%20Style%20Sheets/ContentQueryMain.xsl
+7/9/2008 9:05:34 AM, GetPermission: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:34 AM, GetPermission: inside AuthImpl::GetPermission
+7/9/2008 9:05:34 AM, GetPermission: url=http://soto.corp.google.com/_vti_bin/expurlwp.aspx?FileName=SearchActionLinks.webpart
+7/9/2008 9:05:34 AM, GetPermission: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:34 AM, GetPermission: before WindowsIdentity
+7/9/2008 9:05:34 AM, GetPermission: before WindowsIdentity
+7/9/2008 9:05:34 AM, GetPermission: name=ENT-SALES-D1\sales-admin, authed=True
+7/9/2008 9:05:34 AM, GetPermission: after WindowsIdentity
+7/9/2008 9:05:34 AM, GetPermission: after impersonate
+7/9/2008 9:05:34 AM, GetPermission: name=ENT-SALES-D1\sales-admin, authed=True
+7/9/2008 9:05:34 AM, GetPermission: after WindowsIdentity
+7/9/2008 9:05:34 AM, GetPermission: after impersonate
+7/9/2008 9:05:34 AM, GetURL: inside GetURL internal
+7/9/2008 9:05:34 AM, GetURL: inside GetURL internal
+7/9/2008 9:05:34 AM, GetURL: Sending a Head request to target URL
+7/9/2008 9:05:34 AM, GetURL: Sending a Head request to target URL
+7/9/2008 9:05:34 AM, GetPermission: AuthImpl::caught WebException
+7/9/2008 9:05:34 AM, GetPermission: AuthImpl::caught WebException
+7/9/2008 9:05:34 AM, GetPermission: e = System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.IO.IOException: Unable to read data from the transport connection: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied. ---> System.Net.Sockets.SocketException: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+   at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Connection.SyncRead(HttpWebRequest request, Boolean userRetrievedStream, Boolean probeRead)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at SAMLServices.Wia.AuthImpl.GetURL(String url, ICredentials cred) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 259
+   at SAMLServices.Wia.AuthImpl.GetPermission(String url, String subject) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 134
+7/9/2008 9:05:34 AM, GetPermission: resp = 
+7/9/2008 9:05:34 AM, GetPermission: response is null
+7/9/2008 9:05:34 AM, GetPermission: e = System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.IO.IOException: Unable to read data from the transport connection: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied. ---> System.Net.Sockets.SocketException: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+   at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Connection.SyncRead(HttpWebRequest request, Boolean userRetrievedStream, Boolean probeRead)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at SAMLServices.Wia.AuthImpl.GetURL(String url, ICredentials cred) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 259
+   at SAMLServices.Wia.AuthImpl.GetPermission(String url, String subject) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 134
+7/9/2008 9:05:34 AM, GetPermission: resp = 
+7/9/2008 9:05:34 AM, GetPermission: response is null
+7/9/2008 9:05:34 AM, GetPermission: exit AuthImpl::GetPermission::finally status=Indeterminate
+7/9/2008 9:05:34 AM, Authorize: Authorization response: <soapenv:Envelope
+  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <samlp:Response
+      xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      ID="a781af779b14746e797d9e3b7235d1281"
+      Version="2.0"
+      IssueInstant="2008-07-09T09:05:34Z">
+      <samlp:Status>
+        <samlp:StatusCode
+          Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+      </samlp:Status>
+      <saml:Assertion
+        Version="2.0"
+        ID="a28027a68b84241a1a775edffb93f7b3b"
+        IssueInstant="2008-07-09T09:05:34Z">
+        <saml:Issuer>CLARK</saml:Issuer>
+        <saml:Subject>
+          <saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID>
+        </saml:Subject>
+        <saml:AuthzDecisionStatement
+          Resource="http://soto.corp.google.com/Style%20Library/XSL%20Style%20Sheets/ContentQueryMain.xsl"
+          Decision="Indeterminate">
+          <saml:Action
+            Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">
+            GET
+          </saml:Action>
+        </saml:AuthzDecisionStatement>
+      </saml:Assertion>
+    </samlp:Response>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+
+7/9/2008 9:05:34 AM, GetPermission: exit AuthImpl::GetPermission::finally status=Indeterminate
+7/9/2008 9:05:34 AM, Authorize: Authorization response: <soapenv:Envelope
+  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <samlp:Response
+      xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      ID="aa0dee3ded0a941eaafad905ba90c404a"
+      Version="2.0"
+      IssueInstant="2008-07-09T09:05:34Z">
+      <samlp:Status>
+        <samlp:StatusCode
+          Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+      </samlp:Status>
+      <saml:Assertion
+        Version="2.0"
+        ID="ab51fda664a6b4ca29de8ee4a6013d062"
+        IssueInstant="2008-07-09T09:05:34Z">
+        <saml:Issuer>CLARK</saml:Issuer>
+        <saml:Subject>
+          <saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID>
+        </saml:Subject>
+        <saml:AuthzDecisionStatement
+          Resource="http://soto.corp.google.com/_vti_bin/expurlwp.aspx?FileName=SearchActionLinks.webpart"
+          Decision="Indeterminate">
+          <saml:Action
+            Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">
+            GET
+          </saml:Action>
+        </saml:AuthzDecisionStatement>
+      </saml:Assertion>
+    </samlp:Response>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+
+7/9/2008 9:05:34 AM, Page_Load: inside Authz::Page_Load
+7/9/2008 9:05:34 AM, ExtractRequest: inside Authz::ExtractRequest
+7/9/2008 9:05:34 AM, ExtractRequest: The AuthZ request is: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><samlp:AuthzDecisionQuery ID="mjpafhlnlnleaklkfpblaaamkndeejhcmaioldce" IssueInstant="2008-07-09T16:05:25Z" Resource="http://soto.corp.google.com/Style%20Library/XSL%20Style%20Sheets/SummaryLinkMain.xsl" Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"><saml:Issuer>google.com</saml:Issuer><saml:Subject><saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID></saml:Subject><saml:Action Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">GET</saml:Action></samlp:AuthzDecisionQuery></soapenv:Body></soapenv:Envelope>
+7/9/2008 9:05:34 AM, Page_Load: inside Authz::Page_Load
+7/9/2008 9:05:34 AM, ExtractRequest: inside Authz::ExtractRequest
+7/9/2008 9:05:34 AM, ExtractRequest: The AuthZ request is: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><samlp:AuthzDecisionQuery ID="kaakimnpkffgiafkaooljjjphmcpmmnmbooeeged" IssueInstant="2008-07-09T16:05:25Z" Resource="http://contentvm10.ent-sales-d1.corp.google.com/test.html" Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"><saml:Issuer>google.com</saml:Issuer><saml:Subject><saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID></saml:Subject><saml:Action Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">GET</saml:Action></samlp:AuthzDecisionQuery></soapenv:Body></soapenv:Envelope>
+7/9/2008 9:05:34 AM, ExtractRequest: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:34 AM, ExtractRequest: http://soto.corp.google.com/Style%20Library/XSL%20Style%20Sheets/SummaryLinkMain.xsl
+7/9/2008 9:05:34 AM, Authorize: inside Authz::Authorize
+7/9/2008 9:05:34 AM, ExtractRequest: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:34 AM, ExtractRequest: http://contentvm10.ent-sales-d1.corp.google.com/test.html
+7/9/2008 9:05:34 AM, Authorize: inside Authz::Authorize
+7/9/2008 9:05:34 AM, GetPermission: inside AuthImpl::GetPermission
+7/9/2008 9:05:34 AM, GetPermission: url=http://soto.corp.google.com/Style%20Library/XSL%20Style%20Sheets/SummaryLinkMain.xsl
+7/9/2008 9:05:34 AM, GetPermission: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:34 AM, GetPermission: inside AuthImpl::GetPermission
+7/9/2008 9:05:34 AM, GetPermission: url=http://contentvm10.ent-sales-d1.corp.google.com/test.html
+7/9/2008 9:05:34 AM, GetPermission: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:34 AM, GetPermission: before WindowsIdentity
+7/9/2008 9:05:34 AM, GetPermission: before WindowsIdentity
+7/9/2008 9:05:34 AM, GetPermission: name=ENT-SALES-D1\sales-admin, authed=True
+7/9/2008 9:05:34 AM, GetPermission: after WindowsIdentity
+7/9/2008 9:05:34 AM, GetPermission: name=ENT-SALES-D1\sales-admin, authed=True
+7/9/2008 9:05:34 AM, GetPermission: after WindowsIdentity
+7/9/2008 9:05:34 AM, GetPermission: after impersonate
+7/9/2008 9:05:34 AM, GetPermission: after impersonate
+7/9/2008 9:05:34 AM, GetURL: inside GetURL internal
+7/9/2008 9:05:34 AM, GetURL: Sending a Head request to target URL
+7/9/2008 9:05:34 AM, GetURL: inside GetURL internal
+7/9/2008 9:05:34 AM, GetURL: Sending a Head request to target URL
+7/9/2008 9:05:34 AM, GetPermission: AuthImpl::caught WebException
+7/9/2008 9:05:34 AM, GetPermission: e = System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.IO.IOException: Unable to read data from the transport connection: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied. ---> System.Net.Sockets.SocketException: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+   at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Connection.SyncRead(HttpWebRequest request, Boolean userRetrievedStream, Boolean probeRead)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at SAMLServices.Wia.AuthImpl.GetURL(String url, ICredentials cred) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 259
+   at SAMLServices.Wia.AuthImpl.GetPermission(String url, String subject) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 134
+7/9/2008 9:05:34 AM, GetPermission: resp = 
+7/9/2008 9:05:34 AM, GetPermission: response is null
+7/9/2008 9:05:34 AM, GetPermission: exit AuthImpl::GetPermission::finally status=Indeterminate
+7/9/2008 9:05:34 AM, Authorize: Authorization response: <soapenv:Envelope
+  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <samlp:Response
+      xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      ID="a9c6d4f209c4b4f91b2c9df47bb82dea5"
+      Version="2.0"
+      IssueInstant="2008-07-09T09:05:34Z">
+      <samlp:Status>
+        <samlp:StatusCode
+          Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+      </samlp:Status>
+      <saml:Assertion
+        Version="2.0"
+        ID="aa763b1463f4944189ff57c3ae43c9cb8"
+        IssueInstant="2008-07-09T09:05:34Z">
+        <saml:Issuer>CLARK</saml:Issuer>
+        <saml:Subject>
+          <saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID>
+        </saml:Subject>
+        <saml:AuthzDecisionStatement
+          Resource="http://soto.corp.google.com/Style%20Library/XSL%20Style%20Sheets/SummaryLinkMain.xsl"
+          Decision="Indeterminate">
+          <saml:Action
+            Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">
+            GET
+          </saml:Action>
+        </saml:AuthzDecisionStatement>
+      </saml:Assertion>
+    </samlp:Response>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+
+7/9/2008 9:05:34 AM, Page_Load: inside Authz::Page_Load
+7/9/2008 9:05:34 AM, ExtractRequest: inside Authz::ExtractRequest
+7/9/2008 9:05:34 AM, ExtractRequest: The AuthZ request is: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><samlp:AuthzDecisionQuery ID="cjojgcelghibbgbnncckccakcnnobkmiapdnhgka" IssueInstant="2008-07-09T16:05:25Z" Resource="smb://clark.ent-sales-d1.corp.google.com/documents/matt.xsl" Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"><saml:Issuer>google.com</saml:Issuer><saml:Subject><saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID></saml:Subject><saml:Action Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">GET</saml:Action></samlp:AuthzDecisionQuery></soapenv:Body></soapenv:Envelope>
+7/9/2008 9:05:34 AM, ExtractRequest: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:34 AM, ExtractRequest: smb://clark.ent-sales-d1.corp.google.com/documents/matt.xsl
+7/9/2008 9:05:34 AM, Authorize: inside Authz::Authorize
+7/9/2008 9:05:34 AM, GetPermission: inside AuthImpl::GetPermission
+7/9/2008 9:05:34 AM, GetPermission: url=smb://clark.ent-sales-d1.corp.google.com/documents/matt.xsl
+7/9/2008 9:05:34 AM, GetPermission: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:34 AM, GetPermission: before WindowsIdentity
+7/9/2008 9:05:34 AM, GetPermission: name=ENT-SALES-D1\sales-admin, authed=True
+7/9/2008 9:05:34 AM, GetPermission: after WindowsIdentity
+7/9/2008 9:05:34 AM, GetPermission: after impersonate
+7/9/2008 9:05:34 AM, GetFile: GetFile: \\clark.ent-sales-d1.corp.google.com/documents/matt.xsl
+7/9/2008 9:05:34 AM, GetFile: afer : \\clark.ent-sales-d1.corp.google.com/documents/matt.xsl
+7/9/2008 9:05:35 AM, GetFile:  acl count = 4
+7/9/2008 9:05:35 AM, GetFile: user ENT-SALES-D1\sales-admin
+7/9/2008 9:05:35 AM, GetFile: user listed in acl: 'BUILTIN\Administrators'
+7/9/2008 9:05:35 AM, GetFile: current user:'ENT-SALES-D1\sales-admin'
+7/9/2008 9:05:35 AM, GetFile: user listed in acl: 'BUILTIN\Administrators'
+7/9/2008 9:05:35 AM, GetFile: current user:'ENT-SALES-D1\sales-admin'
+7/9/2008 9:05:35 AM, GetFile: user listed in acl: 'NT AUTHORITY\SYSTEM'
+7/9/2008 9:05:35 AM, GetFile: current user:'ENT-SALES-D1\sales-admin'
+7/9/2008 9:05:35 AM, GetFile: user listed in acl: 'BUILTIN\Users'
+7/9/2008 9:05:35 AM, GetFile: current user:'ENT-SALES-D1\sales-admin'
+7/9/2008 9:05:35 AM, GetFile: found the group!BUILTIN\Users
+7/9/2008 9:05:35 AM, GetFile: allow
+7/9/2008 9:05:35 AM, GetFile: read
+7/9/2008 9:05:35 AM, GetFile: found the group!BUILTIN\Administrators
+7/9/2008 9:05:35 AM, GetFile: allow
+7/9/2008 9:05:35 AM, GetFile: read
+7/9/2008 9:05:35 AM, GetFile: found the group!BUILTIN\Administrators
+7/9/2008 9:05:35 AM, GetFile: allow
+7/9/2008 9:05:35 AM, GetFile: read
+7/9/2008 9:05:35 AM, GetPermission: exit AuthImpl::GetPermission::finally status=Permit
+7/9/2008 9:05:35 AM, GetPermission: exit AuthImpl::GetPermission return status=Permit
+7/9/2008 9:05:35 AM, Authorize: Authorization response: <soapenv:Envelope
+  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <samlp:Response
+      xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      ID="a86a2876fbab544468b53c3e3eaa3e54f"
+      Version="2.0"
+      IssueInstant="2008-07-09T09:05:34Z">
+      <samlp:Status>
+        <samlp:StatusCode
+          Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+      </samlp:Status>
+      <saml:Assertion
+        Version="2.0"
+        ID="ac6cd38ae56434cb1895435840d514e3e"
+        IssueInstant="2008-07-09T09:05:34Z">
+        <saml:Issuer>CLARK</saml:Issuer>
+        <saml:Subject>
+          <saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID>
+        </saml:Subject>
+        <saml:AuthzDecisionStatement
+          Resource="smb://clark.ent-sales-d1.corp.google.com/documents/matt.xsl"
+          Decision="Permit">
+          <saml:Action
+            Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">
+            GET
+          </saml:Action>
+        </saml:AuthzDecisionStatement>
+      </saml:Assertion>
+    </samlp:Response>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+
+7/9/2008 9:05:45 AM, Page_Load: inside Authz::Page_Load
+7/9/2008 9:05:45 AM, ExtractRequest: inside Authz::ExtractRequest
+7/9/2008 9:05:45 AM, ExtractRequest: The AuthZ request is: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><samlp:AuthzDecisionQuery ID="aedoofldfgijifddcmamahdkchamkogpmodgdafn" IssueInstant="2008-07-09T16:05:36Z" Resource="http://soto.corp.google.com/personal/sales-admin/_vti_bin/expurlwp.aspx?FileName=SearchActionLinks.webpart" Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"><saml:Issuer>google.com</saml:Issuer><saml:Subject><saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID></saml:Subject><saml:Action Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">GET</saml:Action></samlp:AuthzDecisionQuery></soapenv:Body></soapenv:Envelope>
+7/9/2008 9:05:45 AM, ExtractRequest: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:45 AM, ExtractRequest: http://soto.corp.google.com/personal/sales-admin/_vti_bin/expurlwp.aspx?FileName=SearchActionLinks.webpart
+7/9/2008 9:05:45 AM, Authorize: inside Authz::Authorize
+7/9/2008 9:05:45 AM, GetPermission: inside AuthImpl::GetPermission
+7/9/2008 9:05:45 AM, GetPermission: url=http://soto.corp.google.com/personal/sales-admin/_vti_bin/expurlwp.aspx?FileName=SearchActionLinks.webpart
+7/9/2008 9:05:45 AM, GetPermission: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:45 AM, GetPermission: before WindowsIdentity
+7/9/2008 9:05:45 AM, Page_Load: inside Authz::Page_Load
+7/9/2008 9:05:45 AM, GetPermission: name=ENT-SALES-D1\sales-admin, authed=True
+7/9/2008 9:05:45 AM, GetPermission: after WindowsIdentity
+7/9/2008 9:05:45 AM, GetPermission: after impersonate
+7/9/2008 9:05:45 AM, ExtractRequest: inside Authz::ExtractRequest
+7/9/2008 9:05:45 AM, ExtractRequest: The AuthZ request is: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><samlp:AuthzDecisionQuery ID="alamplnlihadmpohkhakppehnjhmohjegnfkooic" IssueInstant="2008-07-09T16:05:36Z" Resource="http://soto.corp.google.com/_vti_bin/search.asmx?op=Query" Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"><saml:Issuer>google.com</saml:Issuer><saml:Subject><saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID></saml:Subject><saml:Action Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">GET</saml:Action></samlp:AuthzDecisionQuery></soapenv:Body></soapenv:Envelope>
+7/9/2008 9:05:45 AM, ExtractRequest: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:45 AM, GetURL: inside GetURL internal
+7/9/2008 9:05:45 AM, ExtractRequest: http://soto.corp.google.com/_vti_bin/search.asmx?op=Query
+7/9/2008 9:05:45 AM, Authorize: inside Authz::Authorize
+7/9/2008 9:05:45 AM, GetURL: Sending a Head request to target URL
+7/9/2008 9:05:45 AM, GetPermission: inside AuthImpl::GetPermission
+7/9/2008 9:05:45 AM, GetPermission: url=http://soto.corp.google.com/_vti_bin/search.asmx?op=Query
+7/9/2008 9:05:45 AM, GetPermission: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:45 AM, GetPermission: before WindowsIdentity
+7/9/2008 9:05:45 AM, GetPermission: AuthImpl::caught WebException
+7/9/2008 9:05:45 AM, GetPermission: name=ENT-SALES-D1\sales-admin, authed=True
+7/9/2008 9:05:45 AM, GetPermission: after WindowsIdentity
+7/9/2008 9:05:45 AM, GetPermission: e = System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.IO.IOException: Unable to read data from the transport connection: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied. ---> System.Net.Sockets.SocketException: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+   at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Connection.SyncRead(HttpWebRequest request, Boolean userRetrievedStream, Boolean probeRead)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at SAMLServices.Wia.AuthImpl.GetURL(String url, ICredentials cred) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 259
+   at SAMLServices.Wia.AuthImpl.GetPermission(String url, String subject) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 134
+7/9/2008 9:05:45 AM, GetPermission: resp = 
+7/9/2008 9:05:45 AM, GetPermission: response is null
+7/9/2008 9:05:45 AM, GetPermission: after impersonate
+7/9/2008 9:05:45 AM, GetURL: inside GetURL internal
+7/9/2008 9:05:45 AM, GetPermission: exit AuthImpl::GetPermission::finally status=Indeterminate
+7/9/2008 9:05:45 AM, Authorize: Authorization response: <soapenv:Envelope
+  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <samlp:Response
+      xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      ID="a8d5d4b4d8dcf4d00b8b297ed2a81480c"
+      Version="2.0"
+      IssueInstant="2008-07-09T09:05:45Z">
+      <samlp:Status>
+        <samlp:StatusCode
+          Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+      </samlp:Status>
+      <saml:Assertion
+        Version="2.0"
+        ID="a38a95436cb514af9ab01ba0ab0519162"
+        IssueInstant="2008-07-09T09:05:45Z">
+        <saml:Issuer>CLARK</saml:Issuer>
+        <saml:Subject>
+          <saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID>
+        </saml:Subject>
+        <saml:AuthzDecisionStatement
+          Resource="http://soto.corp.google.com/personal/sales-admin/_vti_bin/expurlwp.aspx?FileName=SearchActionLinks.webpart"
+          Decision="Indeterminate">
+          <saml:Action
+            Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">
+            GET
+          </saml:Action>
+        </saml:AuthzDecisionStatement>
+      </saml:Assertion>
+    </samlp:Response>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+
+7/9/2008 9:05:45 AM, GetURL: Sending a Head request to target URL
+7/9/2008 9:05:45 AM, Page_Load: inside Authz::Page_Load
+7/9/2008 9:05:45 AM, ExtractRequest: inside Authz::ExtractRequest
+7/9/2008 9:05:45 AM, GetPermission: AuthImpl::caught WebException
+7/9/2008 9:05:45 AM, ExtractRequest: The AuthZ request is: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><samlp:AuthzDecisionQuery ID="ibaebcgekkfkilmdmfhmfiinaoofgpdaddglkfan" IssueInstant="2008-07-09T16:05:36Z" Resource="http://soto.corp.google.com/SearchCenter/_vti_bin/search.asmx?op=QueryEx" Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"><saml:Issuer>google.com</saml:Issuer><saml:Subject><saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID></saml:Subject><saml:Action Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">GET</saml:Action></samlp:AuthzDecisionQuery></soapenv:Body></soapenv:Envelope>
+7/9/2008 9:05:45 AM, ExtractRequest: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:45 AM, ExtractRequest: http://soto.corp.google.com/SearchCenter/_vti_bin/search.asmx?op=QueryEx
+7/9/2008 9:05:45 AM, GetPermission: e = System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.IO.IOException: Unable to read data from the transport connection: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied. ---> System.Net.Sockets.SocketException: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+   at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Connection.SyncRead(HttpWebRequest request, Boolean userRetrievedStream, Boolean probeRead)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at SAMLServices.Wia.AuthImpl.GetURL(String url, ICredentials cred) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 259
+   at SAMLServices.Wia.AuthImpl.GetPermission(String url, String subject) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 134
+7/9/2008 9:05:45 AM, GetPermission: resp = 
+7/9/2008 9:05:45 AM, GetPermission: response is null
+7/9/2008 9:05:45 AM, Authorize: inside Authz::Authorize
+7/9/2008 9:05:45 AM, GetPermission: exit AuthImpl::GetPermission::finally status=Indeterminate
+7/9/2008 9:05:45 AM, Authorize: Authorization response: <soapenv:Envelope
+  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <samlp:Response
+      xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      ID="ab3f30d773d7f428da92d398e1fac85e6"
+      Version="2.0"
+      IssueInstant="2008-07-09T09:05:45Z">
+      <samlp:Status>
+        <samlp:StatusCode
+          Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+      </samlp:Status>
+      <saml:Assertion
+        Version="2.0"
+        ID="aef15060104b94587bac41eb1026b8d01"
+        IssueInstant="2008-07-09T09:05:45Z">
+        <saml:Issuer>CLARK</saml:Issuer>
+        <saml:Subject>
+          <saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID>
+        </saml:Subject>
+        <saml:AuthzDecisionStatement
+          Resource="http://soto.corp.google.com/_vti_bin/search.asmx?op=Query"
+          Decision="Indeterminate">
+          <saml:Action
+            Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">
+            GET
+          </saml:Action>
+        </saml:AuthzDecisionStatement>
+      </saml:Assertion>
+    </samlp:Response>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+
+7/9/2008 9:05:45 AM, GetPermission: inside AuthImpl::GetPermission
+7/9/2008 9:05:45 AM, GetPermission: url=http://soto.corp.google.com/SearchCenter/_vti_bin/search.asmx?op=QueryEx
+7/9/2008 9:05:45 AM, GetPermission: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:45 AM, Page_Load: inside Authz::Page_Load
+7/9/2008 9:05:45 AM, ExtractRequest: inside Authz::ExtractRequest
+7/9/2008 9:05:45 AM, ExtractRequest: The AuthZ request is: <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soapenv:Body><samlp:AuthzDecisionQuery ID="nlecfohpghibdanggbnnnfhjndkmdgpggnbmkaek" IssueInstant="2008-07-09T16:05:36Z" Resource="http://soto.corp.google.com/SearchCenter/_vti_bin/search.asmx?op=GetSearchMetadata" Version="2.0" xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion" xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"><saml:Issuer>google.com</saml:Issuer><saml:Subject><saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID></saml:Subject><saml:Action Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">GET</saml:Action></samlp:AuthzDecisionQuery></soapenv:Body></soapenv:Envelope>
+7/9/2008 9:05:45 AM, GetPermission: before WindowsIdentity
+7/9/2008 9:05:45 AM, ExtractRequest: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:45 AM, ExtractRequest: http://soto.corp.google.com/SearchCenter/_vti_bin/search.asmx?op=GetSearchMetadata
+7/9/2008 9:05:45 AM, Authorize: inside Authz::Authorize
+7/9/2008 9:05:45 AM, GetPermission: name=ENT-SALES-D1\sales-admin, authed=True
+7/9/2008 9:05:45 AM, GetPermission: after WindowsIdentity
+7/9/2008 9:05:45 AM, GetPermission: after impersonate
+7/9/2008 9:05:45 AM, GetPermission: inside AuthImpl::GetPermission
+7/9/2008 9:05:45 AM, GetPermission: url=http://soto.corp.google.com/SearchCenter/_vti_bin/search.asmx?op=GetSearchMetadata
+7/9/2008 9:05:45 AM, GetPermission: subject=sales-admin@ENT-SALES-D1
+7/9/2008 9:05:45 AM, GetURL: inside GetURL internal
+7/9/2008 9:05:45 AM, GetURL: Sending a Head request to target URL
+7/9/2008 9:05:45 AM, GetPermission: before WindowsIdentity
+7/9/2008 9:05:45 AM, GetPermission: name=ENT-SALES-D1\sales-admin, authed=True
+7/9/2008 9:05:45 AM, GetPermission: after WindowsIdentity
+7/9/2008 9:05:45 AM, GetPermission: after impersonate
+7/9/2008 9:05:45 AM, GetPermission: AuthImpl::caught WebException
+7/9/2008 9:05:45 AM, GetURL: inside GetURL internal
+7/9/2008 9:05:45 AM, GetURL: Sending a Head request to target URL
+7/9/2008 9:05:45 AM, GetPermission: e = System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.IO.IOException: Unable to read data from the transport connection: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied. ---> System.Net.Sockets.SocketException: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+   at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Connection.SyncRead(HttpWebRequest request, Boolean userRetrievedStream, Boolean probeRead)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at SAMLServices.Wia.AuthImpl.GetURL(String url, ICredentials cred) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 259
+   at SAMLServices.Wia.AuthImpl.GetPermission(String url, String subject) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 134
+7/9/2008 9:05:45 AM, GetPermission: resp = 
+7/9/2008 9:05:45 AM, GetPermission: response is null
+7/9/2008 9:05:45 AM, GetPermission: exit AuthImpl::GetPermission::finally status=Indeterminate
+7/9/2008 9:05:45 AM, GetPermission: AuthImpl::caught WebException
+7/9/2008 9:05:45 AM, Authorize: Authorization response: <soapenv:Envelope
+  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <samlp:Response
+      xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      ID="a35d59af115184ab68b6a760ca99a1ad8"
+      Version="2.0"
+      IssueInstant="2008-07-09T09:05:45Z">
+      <samlp:Status>
+        <samlp:StatusCode
+          Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+      </samlp:Status>
+      <saml:Assertion
+        Version="2.0"
+        ID="ac549d5e0e4d544f69f9594914080be8a"
+        IssueInstant="2008-07-09T09:05:45Z">
+        <saml:Issuer>CLARK</saml:Issuer>
+        <saml:Subject>
+          <saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID>
+        </saml:Subject>
+        <saml:AuthzDecisionStatement
+          Resource="http://soto.corp.google.com/SearchCenter/_vti_bin/search.asmx?op=QueryEx"
+          Decision="Indeterminate">
+          <saml:Action
+            Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">
+            GET
+          </saml:Action>
+        </saml:AuthzDecisionStatement>
+      </saml:Assertion>
+    </samlp:Response>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+
+7/9/2008 9:05:45 AM, GetPermission: e = System.Net.WebException: The underlying connection was closed: An unexpected error occurred on a receive. ---> System.IO.IOException: Unable to read data from the transport connection: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied. ---> System.Net.Sockets.SocketException: A request to send or receive data was disallowed because the socket is not connected and (when sending on a datagram socket using a sendto call) no address was supplied
+   at System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   --- End of inner exception stack trace ---
+   at System.Net.Sockets.NetworkStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.PooledStream.Read(Byte[] buffer, Int32 offset, Int32 size)
+   at System.Net.Connection.SyncRead(HttpWebRequest request, Boolean userRetrievedStream, Boolean probeRead)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at SAMLServices.Wia.AuthImpl.GetURL(String url, ICredentials cred) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 259
+   at SAMLServices.Wia.AuthImpl.GetPermission(String url, String subject) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 134
+7/9/2008 9:05:45 AM, GetPermission: resp = 
+7/9/2008 9:05:45 AM, GetPermission: response is null
+7/9/2008 9:05:45 AM, GetPermission: exit AuthImpl::GetPermission::finally status=Indeterminate
+7/9/2008 9:05:45 AM, Authorize: Authorization response: <soapenv:Envelope
+  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <samlp:Response
+      xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      ID="a9bd0bb2da6ba4d37b8329e295ee6b617"
+      Version="2.0"
+      IssueInstant="2008-07-09T09:05:45Z">
+      <samlp:Status>
+        <samlp:StatusCode
+          Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+      </samlp:Status>
+      <saml:Assertion
+        Version="2.0"
+        ID="a800ef067337040fab80cced3c14bb05f"
+        IssueInstant="2008-07-09T09:05:45Z">
+        <saml:Issuer>CLARK</saml:Issuer>
+        <saml:Subject>
+          <saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID>
+        </saml:Subject>
+        <saml:AuthzDecisionStatement
+          Resource="http://soto.corp.google.com/SearchCenter/_vti_bin/search.asmx?op=GetSearchMetadata"
+          Decision="Indeterminate">
+          <saml:Action
+            Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">
+            GET
+          </saml:Action>
+        </saml:AuthzDecisionStatement>
+      </saml:Assertion>
+    </samlp:Response>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+
+7/9/2008 9:05:55 AM, GetPermission: AuthImpl::caught WebException
+7/9/2008 9:05:55 AM, GetPermission: e = System.Net.WebException: Unable to connect to the remote server ---> System.Net.Sockets.SocketException: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond 172.18.8.160:80
+   at System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.InternalConnect(EndPoint remoteEP)
+   at System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Int32 timeout, Exception& exception)
+   --- End of inner exception stack trace ---
+   at System.Net.HttpWebRequest.GetResponse()
+   at SAMLServices.Wia.AuthImpl.GetURL(String url, ICredentials cred) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 259
+   at SAMLServices.Wia.AuthImpl.GetPermission(String url, String subject) in c:\projects\SAML Bridge\saml-bridge\App_Code\AuthImpl.cs:line 134
+7/9/2008 9:05:55 AM, GetPermission: resp = 
+7/9/2008 9:05:55 AM, GetPermission: response is null
+7/9/2008 9:05:55 AM, GetPermission: exit AuthImpl::GetPermission::finally status=Indeterminate
+7/9/2008 9:05:55 AM, Authorize: Authorization response: <soapenv:Envelope
+  xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Body>
+    <samlp:Response
+      xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol"
+      xmlns:saml="urn:oasis:names:tc:SAML:2.0:assertion"
+      ID="a0f17ffed0af94180aa97fbe43cf1c0c9"
+      Version="2.0"
+      IssueInstant="2008-07-09T09:05:34Z">
+      <samlp:Status>
+        <samlp:StatusCode
+          Value="urn:oasis:names:tc:SAML:2.0:status:Success"/>
+      </samlp:Status>
+      <saml:Assertion
+        Version="2.0"
+        ID="ad576fdc8cab24740a8b5b2508d71faab"
+        IssueInstant="2008-07-09T09:05:34Z">
+        <saml:Issuer>CLARK</saml:Issuer>
+        <saml:Subject>
+          <saml:NameID>sales-admin@ENT-SALES-D1</saml:NameID>
+        </saml:Subject>
+        <saml:AuthzDecisionStatement
+          Resource="http://contentvm10.ent-sales-d1.corp.google.com/test.html"
+          Decision="Indeterminate">
+          <saml:Action
+            Namespace="urn:oasis:names:tc:SAML:1.0:action:ghpp">
+            GET
+          </saml:Action>
+        </saml:AuthzDecisionStatement>
+      </saml:Assertion>
+    </samlp:Response>
+  </soapenv:Body>
+</soapenv:Envelope>
+
+
+8/21/2008 12:12:19 PM, Page_Load: before Login::entering pageload
+8/21/2008 12:12:19 PM, getAuthn: Authentication provider is SAMLServices.Wia.AuthImpl
