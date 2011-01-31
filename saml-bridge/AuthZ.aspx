@@ -1,1 +1,1 @@
-<%@ Page language="c#" CodeFile="AuthZ.aspx.cs" AutoEventWireup="false" Inherits="SAMLServices.AuthZ" %>
+<%@ page language="c#" autoeventwireup="false" inherits="SAMLServices.AuthZ, App_Web_4xkttqzw" %>

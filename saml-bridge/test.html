@@ -1,0 +1,18 @@
+<style><!--					body,td,div,.p,a,.d,.s{font-family:arial,sans-serif}--></style><html><body><table><tr><td><img src='google.gif'/></td><td><font size=6>Google SAML Bridge for Windows</font></td></tr></table><br><script language="javascript"> 
+function decidewhattodo(vtodo){
+	alert ('s');
+	var form1=document.forms[0];
+ 
+form1.todo.value = vtodo;
+	form1.submit
+	return true;
+}</script> 
+<form action=Login.aspx method=get> 
+<table><tr><td><b>Application Pool Identity</b></td><td>GOOGLE\jeffling</td></tr> 
+<tr><td><b>Your Windows account</b></td><td>GOOGLE\jeffling</td></tr> 
+ 
+<tr><td><b>Test account</b></td><td><input name=subject type=text value="GOOGLE\jeffling"></td></tr> 
+<input name='todo' type=hidden> 
+<tr><td><input type=button value='Test Impersonation' onclick="return decidewhattodo('Impersonation');"><input type=button value='Get AD Groups' onclick="return decidewhattodo('Impersonation');"></td></tr> 
+</table></form> 
+</body></html>

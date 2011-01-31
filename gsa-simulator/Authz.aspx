@@ -1,4 +1,4 @@
-<%@ Page language="c#" CodeFile="Authz.aspx.cs" AutoEventWireup="false" Inherits="Authz" %>
+<%@ page language="c#" autoeventwireup="false" inherits="Authz, App_Web_1tvwctry" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
 <HTML>
 	<HEAD>

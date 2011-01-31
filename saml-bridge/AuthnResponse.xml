@@ -42,6 +42,12 @@
               <AuthnContextClassRef>urn:oasis:names:tc:SAML:2.0:ac:classes:%CLASS</AuthnContextClassRef>
             </AuthnContext>
           </AuthnStatement>
+          <AttributeStatement>
+            <Attribute Name="member-of">
+              <!--AttributeValue>engineering</AttributeValue-->
+              %GROUPS
+            </Attribute>
+          </AttributeStatement>
         </Assertion>
       </samlp:Response>
     </samlp:ArtifactResponse>

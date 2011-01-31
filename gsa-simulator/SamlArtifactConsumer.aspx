@@ -1,1 +1,1 @@
-<%@ Page language="c#" Inherits="SamlArtifactConsumer" CodeFile="SamlArtifactConsumer.aspx.cs" AutoEventWireup="false" %>
+<%@ page language="c#" inherits="SamlArtifactConsumer, App_Web_1tvwctry" autoeventwireup="false" %>

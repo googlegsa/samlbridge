@@ -1,4 +1,4 @@
-<%@ Page language="c#" Inherits="Search" CodeFile="Search.aspx.cs" AutoEventWireup="false" %>
+<%@ page language="c#" inherits="Search, App_Web_1tvwctry" autoeventwireup="false" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" >
 <HTML>
 	<HEAD>
