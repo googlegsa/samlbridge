@@ -141,7 +141,7 @@ namespace SAMLServices
 			req = req.Replace("%REQID", responseTo);
             DateTime currentTimeStamp = DateTime.Now;
 			req = req.Replace("%INSTANT", Common.FormatInvariantTime(currentTimeStamp));
-            req = req.Replace("%NOT_ON_OR_AFTER", Common.FormatInvariantTime(currentTimeStamp.AddSeconds(5)));
+            req = req.Replace("%NOT_ON_OR_AFTER", Common.FormatInvariantTime(currentTimeStamp.AddSeconds(Common.iTrustDuration)));
 
             String idpEntityId;
             if(Common.IDPEntityId.Length>0)

@@ -75,7 +75,8 @@ namespace SAMLServices
 				else if (level.ToLower().Equals("error"))
 					Common.LOG_LEVEL = Common.ERROR;
 			}
-			String sProvider = ConfigurationSettings.AppSettings["provider"];
+            Common.iTrustDuration = int.Parse(ConfigurationSettings.AppSettings["trust_duration"]);
+            String sProvider = ConfigurationSettings.AppSettings["provider"];
 			if (sProvider != null && !sProvider.Equals(""))
 				Common.provider = Type.GetType(sProvider);
 			//log 

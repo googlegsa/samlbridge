@@ -63,6 +63,7 @@ namespace SAMLServices
 		public static String DenyAction = null;
 		public static String DENY_REDIRECT = "redirect";
 		public static String DENY_RETURN_CODE = "return_code";
+        public static int iTrustDuration = 300;
 
 		/// <summary>
 		/// When log level lower or equal to debug, show debug(most detailed msg)
