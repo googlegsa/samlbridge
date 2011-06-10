@@ -36,7 +36,7 @@ namespace SAMLServices
 	/// This page is called from the GSA to resolve an artifact, and obtain a user's ID.
 	/// It expects to receive a SAML message with the artifact and time stamp.
 	/// </summary>
-    public partial class Resolve : System.Web.UI.Page
+    public partial class Resolve : AuthenticationPage 
 	{
 		private void Page_Load(object sender, System.EventArgs e)
 		{
@@ -60,41 +60,6 @@ namespace SAMLServices
 			Common.debug("Authentication response=" + res);
 			Response.Write (res);
 		}
-		/// <summary>
-		/// Method to extract the core information from the SAML message,
-		/// specifically the artifact and the SAML ID of the request.
-		/// </summary>
-		/// <returns>Two element String array, the first is the artifact, the second is the request ID</returns>
-		String [] ExtractInfo()
-		{
-			String [] result = new String[3];
-			Common.debug("inside ResolveArt::ExtractInfo");
-			// Get the SAML message from the request, in the form of a string
-			String req = Common.ReadRequest(Request);
-			Common.debug("request from GSA=" + req);
-
-			// Find the artifact node and obtain the InnerText
-			XmlNode node = Common.FindOnly(req, Common.ARTIFACT);
-			result[0] = node.InnerText;
-            Common.debug("Artifiact Id = " + result[0]);
-
-			// Find the SAML request ID in an XML attribute.
-			//  This is needed for the response for the GSA
-			//  to understand how to match it up with its request
-			node  = Common.FindOnly(req, Common.ArtifactResolve);
-			result[1] = node.Attributes[Common.ID].Value;
-            Common.debug("SAML Resolve Request Id = " + result[1]);
-
-            //Find the Issuer details. 
-            //These need to be passed back as AudienceRestriction in the Assertion Conditions
-            node = Common.FindOnly(req, Common.ISSUER);
-            result[2] = node.InnerText;
-            Common.debug("Resolve Requester = " + result[2]);
-
-            Common.debug("exit ResolveArt::ExtractInfo");
-			return result;
-		}
-
 		/// <summary>
 		/// Method to obtain cached user ID and AuthN request ID from the given artifact
 		/// </summary>
@@ -130,7 +95,7 @@ namespace SAMLServices
 		/// <returns>Artifact Resolution Response XML</returns>
         String BuildResponse(String responseTo, SamlArtifactCacheEntry samlArtifactCacheEntry, String audienceRestriction)
 		{
-            String recipientGsa = Common.GSAArtifactConsumer;
+            String recipientGsa = Common.GSAAssertionConsumer;
             if (!recipientGsa.StartsWith("http"))
             {
                 recipientGsa = "http://" + Request.Headers["Host"] + recipientGsa;

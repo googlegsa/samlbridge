@@ -10,7 +10,7 @@ namespace SAMLServices
 	/// <summary>
 	/// Summary description for ImpHeader.
 	/// </summary>
-	public class ImpHeader : IImpersonation
+    public class ImpHeader : AuthenticationPage, IImpersonation
 	{
 		public static String COOKIE_DOMAIN = "";
 		public ImpHeader()
@@ -81,10 +81,10 @@ namespace SAMLServices
 				if (Common.LOG_LEVEL == Common.DEBUG)
 				{
 					Common.debug("response header");
-					Common.dumpHeaders(response.Headers);
-					Common.dumpResponse(response);
+					dumpHeaders(response.Headers);
+					dumpResponse();
 				}
-				return Common.handleDeny(response);
+				return handleDeny();
 			}
 			catch(Exception e)
 			{

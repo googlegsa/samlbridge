@@ -25,7 +25,7 @@ namespace SAMLServices
 	/// <summary>
 	/// Summary description for SsoAuthImpl.
 	/// </summary>
-	public class SsoAuthImpl: IAuthn, IAuthz
+    public class SsoAuthImpl : AuthenticationPage, IAuthn, IAuthz
 	{
 		System.Web.UI.Page page;
 		public static string IMP_METHOD = null;
@@ -87,7 +87,7 @@ namespace SAMLServices
 			HttpRequest Request = page.Request;
 			HttpResponse Response = page.Response;
 
-			Common.printHeader(Response);
+			printHeader();
 			Response.Write("Request Headers<br>");
 			Response.Write("<table><tr span=2>");
 			for (int i =0; i< Request.Headers.Count; ++i)
@@ -101,7 +101,7 @@ namespace SAMLServices
 				Response.Write("</td>");
 			}
 			Response.Write("</tr></table>");
-			Common.printFooter(Response);
+			printFooter();
 		}
 
 		private void storeHeaders(String subject)

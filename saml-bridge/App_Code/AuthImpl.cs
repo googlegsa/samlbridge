@@ -29,7 +29,7 @@ namespace SAMLServices.Wia
 	/// <summary>
 	/// Implementation for AA interfaces, Windows Integrated Auth and IIS security check
 	/// </summary>
-	public class AuthImpl : IAuthn, IAuthz
+    public class AuthImpl : AuthenticationPage, IAuthn, IAuthz
 	{
 		System.Web.UI.Page page;
 		public AuthImpl(System.Web.UI.Page page)
@@ -51,41 +51,6 @@ namespace SAMLServices.Wia
 			return principal;
 		}
 
-		/// <summary>
-		/// Test impersonation directly without GSA involved.
-		/// Expect the request having a parameter "subject"
-		/// </summary>
-		public void Diagnose()
-		{
-			HttpRequest Request = page.Request;
-			HttpResponse Response = page.Response;
-			String samlRequest = Request.Params["SAMLRequest"];			
-			// Put user code to initialize the page here
-			Common.printHeader(Response);
-			String subject  = Request.Params["subject"];
-			if (subject == null)
-			{
-				Response.Write("Application Pool Identity  = "  + WindowsIdentity.GetCurrent().Name);
-				Response.Write("<br>");
-				Response.Write("Your Windows account  = " + page.User.Identity.Name);
-				Response.Write("<p>");
-				Response.Write("<b>Use Login.aspx?subject=user@domain to test impersonation.</b>");
-			}else
-			//Test Impersonation
-			{
-				WindowsIdentity wi = new WindowsIdentity(subject);
-				if (wi != null)
-					Response.Write("<br>Obtained Windows identity for user " + subject);
-				WindowsImpersonationContext wic = null;
-				wic = wi.Impersonate();
-				Response.Write("<br>This message was written using the identity of " + subject);
-				Response.Write("<br>Impersonation successful!");
-				if( wic != null)
-					wic.Undo();
-				Response.Write("<p><b>Now you can test content authorization using <a href=\"/gsa-simulator/Default.aspx\">GSA Simulator!</a></b>");
-			}
-			Common.printFooter(Response);
-		}
 		#endregion
 
 		#region IAuthz Members
@@ -229,7 +194,7 @@ namespace SAMLServices.Wia
 		/// <param name="url">target URL</param>
 		/// <param name="cred">The credential to be used when accessing the URL</param>
 		/// <returns></returns>
-		public static String GetURL(String url, ICredentials cred)
+		public String GetURL(String url, ICredentials cred)
 		{
 			Common.debug("inside GetURL internal");
 			HttpWebRequest web = (HttpWebRequest) WebRequest.Create(url);
@@ -257,7 +222,7 @@ namespace SAMLServices.Wia
                 Common.debug("end of response");
 				responseStream.Close();
 			}
-			return Common.handleDeny(response);
+			return handleDeny();
 		}
 
 

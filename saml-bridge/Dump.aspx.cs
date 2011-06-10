@@ -14,7 +14,7 @@ namespace SAMLServices
 	/// <summary>
 	/// Summary description for Dump.
 	/// </summary>
-	public partial class Dump : System.Web.UI.Page
+	public partial class Dump : AuthenticationPage
 	{
 		private void Page_Load(object sender, System.EventArgs e)
 		{
@@ -24,7 +24,7 @@ namespace SAMLServices
 			//  This isn't used but shows how it could be.
 			// Since this requires version 2.0 of the .NET Framework, it's commented out for now
 			// DecodeRequest();
-				authn.Diagnose();
+				Diagnose();
 		}
 
 		#region Web Form Designer generated code

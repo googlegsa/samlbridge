@@ -34,7 +34,7 @@ namespace SAMLServices
 	/// For silent authentication, this page must not have Anonymous Access enabled,
 	///  and should only have Integrated Windows Authentication enabled.
 	/// </summary>
-    public partial class Login : System.Web.UI.Page
+    public partial class Login : AuthenticationPage
 	{
 		private void Page_Load(object sender, System.EventArgs e)
 		{
@@ -47,18 +47,19 @@ namespace SAMLServices
             String samlRequest = Request.Params["SAMLRequest"];			
 			if (samlRequest == null || "".Equals(samlRequest) ) 
 			{
-				authn.Diagnose();
+				Diagnose();
 				return;
 			}
 
             //Decode request and extract the AuthNRequestId
-            String AuthNRequestId = ExtractAuthNRequestId(samlRequest);
-            if (AuthNRequestId == null || AuthNRequestId.Equals(""))
+            AuthNRequest authNRequest = ExtractAuthNRequest(samlRequest);
+            if (authNRequest.Id == null || authNRequest.Id.Equals(""))
             {
                 Common.error("Couldn't extract AuthN Request Id from SAMLRequest");
                 throw new Exception("Failed to extract AuthN Request Id from SAML Request");
             }
-            Common.debug("Extracted AuthNRequestId is :" + AuthNRequestId);
+
+            Common.debug("Extracted AuthNRequestId is :" + authNRequest.Id);
             
             
             String subject = authn.GetUserIdentity();
@@ -78,7 +79,7 @@ namespace SAMLServices
             // and the AuthN request Id with the artifact string.
 			// This is used later when the GSA asks to verify the artifact and obtain the 
 			// user ID (in ResolveArt.aspx.cs).
-            SamlArtifactCacheEntry samlArtifactCacheEntry = new SamlArtifactCacheEntry(subject, AuthNRequestId);
+            SamlArtifactCacheEntry samlArtifactCacheEntry = new SamlArtifactCacheEntry(subject, authNRequest.Id);
 
             Application[Common.ARTIFACT + "_" + artifactId] = samlArtifactCacheEntry;
 
@@ -91,7 +92,7 @@ namespace SAMLServices
 
 			// Encode the relay state for building the redirection URL (back to the GSA)
 			relayState = HttpUtility.UrlEncode(relayState);
-			gsa = Common.GSAArtifactConsumer + "?SAMLart=" + artifactId  + "&RelayState=" + relayState;
+			gsa = Common.GSAAssertionConsumer + "?SAMLart=" + artifactId  + "&RelayState=" + relayState;
             if (!gsa.StartsWith("http"))
             {
                 gsa = "http://" + Request.Headers["Host"] + gsa;
@@ -107,26 +108,6 @@ namespace SAMLServices
 
 
 		#region ExtractID requires .NET Framework v 2.0
-
-		/// <summary>
-		/// Extracts the Authn request ID from the SAML Request parameter
-		/// </summary>
-		/// <returns></returns>
-        String ExtractAuthNRequestId(String samlRequest)
-		{
-			Common.debug("samlRequest = " + samlRequest);
-            samlRequest = Common.Decompress(Server, samlRequest);
-            Common.debug("samlRequest decoded = " + samlRequest);
-			if (samlRequest == null)
-			{
-				Common.debug("Decompress failed");
-				return null;
-			}
-			XmlDocument doc = new XmlDocument();
-			doc.InnerXml = samlRequest;
-			XmlElement root = doc.DocumentElement; 
-			return root.Attributes["ID"].Value;
-		}
 
 		#endregion
 		#region Web Form Designer generated code

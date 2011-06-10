@@ -11,7 +11,7 @@ namespace SAMLServices
 	/// <summary>
 	/// Summary description for SiteMinderImpersonation.
 	/// </summary>
-	public class ImpSM: IImpersonation
+    public class ImpSM : AuthenticationPage, IImpersonation
 	{
 		public static string IMP_TOR = null;
 		public static string IMP_PWD = null;
@@ -40,8 +40,8 @@ namespace SAMLServices
 			web.CookieContainer = new CookieContainer();
 			HttpWebResponse resp = (HttpWebResponse) web.GetResponse();
 			mCookies = resp.Cookies;
-			Common.dumpHeaders(resp.Headers);
-			Common.dumpResponse(resp);
+			dumpHeaders(resp.Headers);
+			dumpResponse();
 		}
 
 		public String GetPermission(Page page, String url, String subject)
@@ -70,8 +70,8 @@ namespace SAMLServices
 				HttpWebResponse resp = (HttpWebResponse) web.GetResponse();
 				resp = (HttpWebResponse) web.GetResponse();
 				CookieCollection cookies = resp.Cookies;
-				Common.dumpHeaders(resp.Headers);
-				Common.dumpResponse(resp);
+				dumpHeaders(resp.Headers);
+				dumpResponse();
 				//test URL
 				Common.debug("test URL");
 				web = (HttpWebRequest) WebRequest.Create(url);
@@ -79,8 +79,8 @@ namespace SAMLServices
 				web.CookieContainer = new CookieContainer();
 				web.CookieContainer.Add(cookies);
 				resp = (HttpWebResponse) web.GetResponse();
-				Common.dumpHeaders(resp.Headers);
-				Common.dumpResponse(resp);
+				dumpHeaders(resp.Headers);
+				dumpResponse();
 				cookies = resp.Cookies;
 				//end impersonation
 				Common.debug("end impersonation");
@@ -89,7 +89,7 @@ namespace SAMLServices
 				web.CookieContainer = new CookieContainer();
 				web.CookieContainer.Add(cookies);
 				resp = (HttpWebResponse) web.GetResponse();
-				Common.dumpResponse(resp);
+				dumpResponse();
 				return "Permit";
 			}
 			catch(Exception e)

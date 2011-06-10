@@ -38,7 +38,7 @@ namespace SAMLServices
 	/// This page is called from the GSA to detemine user access to a given URL.
 	/// It expects to receive a SAML message with the URL and user ID.
 	/// </summary>
-	public partial class AuthZ : System.Web.UI.Page
+	public partial class AuthZ : AuthenticationPage
 	{
 		private void Page_Load(object sender, System.EventArgs e)
 		{
@@ -47,11 +47,11 @@ namespace SAMLServices
 			Object[] resp = ExtractRequest();
 			if (resp == null)
 			{
-				Common.printHeader(Response);
+				printHeader();
 				Response.Write("Application Pool Identity  = "  + WindowsIdentity.GetCurrent().Name);
 				Response.Write("<br>");
 				Response.Write("Your Windows account = " + Page.User.Identity.Name);
-				Common.printFooter(Response);
+				printFooter();
 				return;
 			}
 			// Check authorization and respond
@@ -69,7 +69,7 @@ namespace SAMLServices
 			Object[] resp = new Object[2];
 
 			// Get the SAML message (in String form) from the HTTP request
-			String req = Common.ReadRequest(Request);
+			String req = ReadRequest();
 			Common.debug("The AuthZ request is: " + req);
 			if (req == null || "".Equals(req))
 			{
