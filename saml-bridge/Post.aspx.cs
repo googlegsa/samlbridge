@@ -90,7 +90,7 @@ public partial class _Default : AuthenticationPage
         String req = respDoc.InnerXml;
         req = req.Replace("%REQID", authNRequest.Id);
         DateTime currentTimeStamp = DateTime.Now;
-        req = req.Replace("%INSTANT", Common.FormatInvariantTime(currentTimeStamp.AddMinutes(-2)));
+        req = req.Replace("%INSTANT", Common.FormatInvariantTime(currentTimeStamp.AddMinutes(-1)));
         req = req.Replace("%NOT_ON_OR_AFTER", Common.FormatInvariantTime(currentTimeStamp.AddSeconds(Common.iTrustDuration)));
         String idpEntityId;
         if (Common.IDPEntityId == null || "".Equals(Common.IDPEntityId))

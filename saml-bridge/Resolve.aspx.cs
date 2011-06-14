@@ -105,7 +105,7 @@ namespace SAMLServices
 			String req = Common.AuthNResponseTemplate;
 			req = req.Replace("%REQID", responseTo);
             DateTime currentTimeStamp = DateTime.Now;
-			req = req.Replace("%INSTANT", Common.FormatInvariantTime(currentTimeStamp));
+			req = req.Replace("%INSTANT", Common.FormatInvariantTime(currentTimeStamp.AddMinutes(-1)));
             req = req.Replace("%NOT_ON_OR_AFTER", Common.FormatInvariantTime(currentTimeStamp.AddSeconds(Common.iTrustDuration)));
 
             String idpEntityId;
