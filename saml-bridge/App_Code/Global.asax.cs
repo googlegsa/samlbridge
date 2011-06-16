@@ -91,6 +91,7 @@ namespace SAMLServices
                     Common.LOG_LEVEL = Common.ERROR;
             }
             Common.iTrustDuration = int.Parse(ConfigurationSettings.AppSettings["trust_duration"]);
+            Common.subjectFormat = ConfigurationSettings.AppSettings["subject_format"];
             GetCertificate();
             String sProvider = ConfigurationSettings.AppSettings["provider"];
             if (sProvider != null && !sProvider.Equals(""))

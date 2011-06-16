@@ -44,10 +44,20 @@ namespace SAMLServices.Wia
 		public String GetUserIdentity()
 		{
 			String principal = page.User.Identity.Name;
-			String[] prins = principal.Split('\\');
-			//Kerberos accepts this format
-			if (prins.Length == 2)
-				principal = prins[1] + "@" + prins[0];
+            if (Common.subjectFormat.Contains("\\"))
+                return principal;
+            else if (Common.subjectFormat.Contains("@"))
+            {
+                String[] prins = principal.Split('\\');
+                if (prins.Length == 2)
+                    principal = prins[1] + "@" + prins[0];
+            }
+            else
+            {
+                String[] prins = principal.Split('\\');
+                if (prins.Length == 2)
+                    principal = prins[1];
+            }
 			return principal;
 		}
 

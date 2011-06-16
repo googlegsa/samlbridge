@@ -70,6 +70,7 @@ namespace SAMLServices
         public static XmlDocument postResponse;
         public static X509Certificate2 certificate = null;
         public static String postForm = null;
+        public static String subjectFormat = "";
 
         /// <summary>
         /// When log level lower or equal to debug, show debug(most detailed msg)
