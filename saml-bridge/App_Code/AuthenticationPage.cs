@@ -164,7 +164,7 @@ public class AuthenticationPage : System.Web.UI.Page
         Response.Write("</body></html>");
     }
 
-    public String handleDeny()
+    public String handleDeny(HttpWebResponse response)
     {
         //now handle deny 
         String denyAction = Common.DenyAction;
@@ -172,7 +172,7 @@ public class AuthenticationPage : System.Web.UI.Page
         if (Common.DENY_REDIRECT.Equals(denyAction))
         {
 
-            String[] locations = Response.Headers.GetValues("Location");
+            String[] locations = response.Headers.GetValues("Location");
             if (locations != null)
             {
                 String location = locations[0].ToLower();
@@ -189,7 +189,7 @@ public class AuthenticationPage : System.Web.UI.Page
         }
         else //error code
         {
-            int status = (int)Response.StatusCode;
+            int status = (int)response.StatusCode;
             Common.debug("status code " + status);
             foreach (String key in Common.denyCodes.Keys)
             {

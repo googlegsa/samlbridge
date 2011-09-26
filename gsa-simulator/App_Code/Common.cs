@@ -50,7 +50,12 @@ using System.IO.Compression;
 			return Common.getAC(Request) + "Authz.aspx";
 		}
 
-		public static String FormatNow()
+        public static String GetLoginPage(HttpRequest Request)
+        {
+            return Common.getAC(Request) + "Login.aspx";
+        }
+        
+        public static String FormatNow()
 		{
 			return DateTime.Now.ToUniversalTime().ToString("s", DateTimeFormatInfo.InvariantInfo) + "Z";
 		}

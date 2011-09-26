@@ -222,17 +222,15 @@ namespace SAMLServices.Wia
 			HttpWebResponse response  = (HttpWebResponse)web.GetResponse();
 			if (Common.LOG_LEVEL == Common.DEBUG)
 			{
-                Common.debug("let's see what we've got, the response page is: ");
-                web.Method = "GET";
-                response = (HttpWebResponse) web.GetResponse();
+                Common.debug("Response code: " + response.StatusCode);
+                Common.debug("let's see what we've got, the response page content is: ");
 				Stream responseStream = response.GetResponseStream();
 				StreamReader reader = new StreamReader (responseStream);
 				String res = reader.ReadToEnd ();
                 Common.debug(res);
                 Common.debug("end of response");
-				responseStream.Close();
 			}
-			return handleDeny();
+			return handleDeny(response);
 		}
 
 

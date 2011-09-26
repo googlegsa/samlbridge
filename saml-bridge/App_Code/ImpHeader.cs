@@ -84,7 +84,7 @@ namespace SAMLServices
 					dumpHeaders(response.Headers);
 					dumpResponse();
 				}
-				return handleDeny();
+				return handleDeny(response);
 			}
 			catch(Exception e)
 			{

@@ -65,13 +65,14 @@ public partial class SamlArtifactConsumer : System.Web.UI.Page
 			String res = Common.PostToURL(Common.GetSamlResolver(Request), req);
 			XmlDocument doc = new XmlDocument();
 			doc.InnerXml = res;
-			XmlNodeList list = doc.GetElementsByTagName("Subject");
-			//<subject>
-			XmlNode subject = list.Item(0);
-			//<nameId>
+			XmlNodeList list = doc.GetElementsByTagName("NameID");
+            Common.log("The Subject element count: " + list.Count);
+			//<NameId>
+			XmlNode subject = list.Item(0); 
 			subject = subject.LastChild;
 			String sub = subject.InnerText;
-			return sub;
+            Common.log("The Subject is: " + sub);
+            return sub;
 		}
 
 		void Authz(String subject, String resource)

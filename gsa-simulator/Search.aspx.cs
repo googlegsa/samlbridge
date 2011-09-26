@@ -46,7 +46,7 @@ public partial class Search : System.Web.UI.Page
 			Session.Add("URL", Request.Params["Resource"]);
 			Common.log("URL to test: " + Request.Params["Resource"]);
 			//Response.Write(query);
-			Response.Redirect(Common.getAC(Request) + "?" + query);
+			Response.Redirect(Common.GetLoginPage(Request) + "?" + query);
 		}
 
 		String BuildSamlRequest()
