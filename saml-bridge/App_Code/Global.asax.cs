@@ -144,7 +144,7 @@ namespace SAMLServices
             for (int i = 0; i < store.Certificates.Count; ++i)
             {
                 if (store.Certificates[i].FriendlyName.Equals(ConfigurationSettings.AppSettings["certificate_friendly_name"]))
-                    Common.certificate = store.Certificates[0];
+                    Common.certificate = store.Certificates[i];
             }
             store.Close();
         }
