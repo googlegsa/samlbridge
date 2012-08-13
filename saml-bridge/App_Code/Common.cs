@@ -102,6 +102,11 @@ namespace SAMLServices
         /// <param name="msg"></param>
         private static void log(String msg)
         {
+            if (LogFile == null)
+            {
+                // TODO: log this to event log
+                return;
+            }
             lock (LogFile)
             {
 

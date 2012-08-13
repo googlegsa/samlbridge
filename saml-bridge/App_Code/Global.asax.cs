@@ -46,6 +46,8 @@ namespace SAMLServices
 
         protected void Application_Start(Object sender, EventArgs e)
         {
+            //log 
+            Common.LogFile = Server.MapPath("ac.log");
             //read template only once
             String template = Server.MapPath("AuthnResponse.xml");
             Stream fs = new FileStream(template, FileMode.Open, FileAccess.Read);
@@ -96,8 +98,6 @@ namespace SAMLServices
             String sProvider = ConfigurationSettings.AppSettings["provider"];
             if (sProvider != null && !sProvider.Equals(""))
                 Common.provider = Type.GetType(sProvider);
-            //log 
-            Common.LogFile = Server.MapPath("ac.log");
             Common.SsoSubjectVar = ConfigurationSettings.AppSettings["sso_user_var"];
             Common.DenyAction = ConfigurationSettings.AppSettings["deny_action"];
             String alias = ConfigurationSettings.AppSettings["deny_urls"];
