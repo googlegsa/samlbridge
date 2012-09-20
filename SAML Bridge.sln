@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		RELEASE_NOTE.txt = RELEASE_NOTE.txt
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "gsa-simulator", "gsa-simulator", "{E6D9A80C-50D2-45A4-9AD5-A7EB4C8312F1}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "gsa-simulator", "gsa-simulator\", "{E6D9A80C-50D2-45A4-9AD5-A7EB4C8312F1}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "2.0"
 		Debug.AspNetCompiler.VirtualPath = "/gsa-simulator"
@@ -16,20 +16,20 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "gsa-simulator", "gsa-simula
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\gsa-simulator\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.FixedNames = "true"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/gsa-simulator"
 		Release.AspNetCompiler.PhysicalPath = "gsa-simulator\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\gsa-simulator\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.FixedNames = "true"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "1525"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "saml-bridge", "saml-bridge", "{378701E1-4E96-45DA-B7AE-6275181A2EF8}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "saml-bridge", "saml-bridge\", "{378701E1-4E96-45DA-B7AE-6275181A2EF8}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFramework = "2.0"
 		Debug.AspNetCompiler.VirtualPath = "/saml-bridge"
@@ -37,14 +37,14 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "saml-bridge", "saml-bridge"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\saml-bridge\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.FixedNames = "true"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/saml-bridge"
 		Release.AspNetCompiler.PhysicalPath = "saml-bridge\"
 		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\saml-bridge\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.FixedNames = "true"
 		Release.AspNetCompiler.Debug = "False"
 		VWDPort = "2876"
 	EndProjectSection
