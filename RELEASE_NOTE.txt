@@ -1,41 +1,160 @@
-RELEASE NOTES FOR SAML BRIDGE
+Release Notes:
+===============
 
-version 2.0
-Since GSA 6.4, the legacy SAML AuthN SPI is replaced by Security Manager SPI. This version is compatible with GSA 6.4 Security Manager based SPI.
+Google SAML Bridge for Windows
+
+This document contains the release notes for Google SAML Bridge for Windows.
+The following sections describe the release in detail and provide information that supplements the main documentation.
+
+Web Site: http://code.google.com/p/google-saml-bridge-for-windows/
+
+Release 3.0.0 October 16, 2012
+====================================
+
+Introduction
+------------
+This is a patch release that fixes a few small problems discovered in the previous release.  Users of previous releases are encouraged to upgrade.  Your feedback is important to us.
+
+Summary of Changes / New Features
+---------------------------------
+This patch contains fixes for the following issues in the connector:
+
+--Issue 6847676 SAML Bridge displays IIS stack trace during first request.
+--Issue 6108028 SAML Bridge always uses first certificate in the certificate store.
+--Issue 5853617 SAML Bridge ships with log_level set to debug, which significantly affects authorization performance.
+--Issue 6850659 SAML Bridge log files distributed with internal hostnames.
+--Issue 4194266 Make the five seconds expiration of SAML assertion configurable.
+
+Platform Support
+------------------
+Google SAML Bridge for Windows can be installed and run on both 32-bit and 64-bit Windows.
+
+Certified Against
+-------------------
+32-bit:
+-------
+Microsoft Windows Server 2003
+Enterprise Edition
+Intel(R) Xeon(R) CPU
+E5504 @ 2.00GHz, 2.00 GB of RAM
+
+64-bit:
+--------
+Microsoft Windows Server 2008 R2
+Enterprise x64 Edition
+Intel(R) Xeon(R) CPU
+E5504 @ 2.00GHz, 2.00 GB of RAM
+
+GSA Support:
+---------------------
+This version of Google SAML Bridge for Windows has been certified against GSA 6.14.0.G.28 and GSA 7.0.14.G.84.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Release 2.8.0, September 25, 2012
+====================================
+
+Introduction
+------------
+This is an upgrade release with some enhancements. Users of previous releases are encouraged to upgrade. Your feedback is important to us.
+
+Summary of Changes / New Features
+---------------------------------
+This patch contains fixes for the following issues in the connector:
+--Issue 5157155 SAML bridge doesn't work with SharePoint connector 2.8 group resolution.
+--Issue 4356803 Google (GSA) SAML Bridge should support Post Binding.
+
+Platform Support
+------------------
+Google SAML Bridge for Windows can be installed and run on both 32-bit and 64-bit Windows.
+
+Certified Against
+-------------------
+32-bit:
+-------
+Microsoft Windows Server 2003
+Enterprise Edition
+Intel(R) Xeon(R) CPU
+E5504 @ 2.00GHz, 2.00 GB of RAM
+
+64-bit:
+--------
+Microsoft Windows Server 2008 R2
+Enterprise x64 Edition
+Intel(R) Xeon(R) CPU
+E5504 @ 2.00GHz, 2.00 GB of RAM
+
+GSA Support:
+---------------------
+This version of Google SAML Bridge for Windows has been certified against GSA 6.14.0.G.28 and GSA 7.0.14.G.84.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Release 2.0
+====================================
+
+Introduction
+------------
+Since GSA 6.4, the legacy SAML authentication SPI is replaced by Security Manager SPI. This version is compatible with GSA 6.4 Security Manager based SPI.
 It also supports Bulk Authorization feature.
 
-Problems Fixed:
-Issue #11, decode request failed (fixed in 1.5.1)
-Issue #12, Support Batch AuthZ
-Issue #16, SAML Bridge 1.6 or lower is not compatible with new Security Manager SPI in GSA 6.4
+Summary of Changes
+---------------------------------
 
-version 1.5
+--Issue #11 Decode request failed (fixed in 1.5.1).
+--Issue #12 Support Batch authorization
+--Issue #16 SAML Bridge 1.6 or lower is not compatible with new Security Manager SPI in GSA 6.4
 
-Summary:
+----------------------------------------------------------------------------------------------------------------------
+
+Release 1.5
+
+Introduction
+------------
 This version was built using Microsoft Visual Studio 2005. There are quite some differences in the binary output. If you are upgrading, you need to clean up the 
-existing folders and copy over the new ones.
-If you'd like to build from source code, you'll need Microsoft Visual Studio 2005. Previous releases were built using Visual Studio 2003.
+existing folders and copy over the new ones.  If you'd like to build from source code, you'll need Microsoft Visual Studio 2005. Previous releases were built using Visual 
+Studio 2003.
 
-Problems fixed:
-#8, Saml Bridge throws an exception when performing an authz check on a folder/directory. Now SAML Bridge checks file's ACL instead of trying to open a file or folder.
-#9, Saml Bridge throws an exception when performing an authz check on a file in use 
+Summary of Changes
+---------------------------------
+This patch contains fixes for the following issues in the connector:
 
-Features added:
-Version 1.5 allows error pages or error codes to be used when something goes wrong. For example, some applications use IIS plugin so that when user is not authorized, 
-he/she will be redirected to an error page. Previous versions couldn't detect this type of denial. Now you can configure the SAML Bridge to recognize such permission
-denial.
+--Issue #8 Saml Bridge throws an exception when performing an authorization check on a folder/directory. Now SAML Bridge checks file's ACL instead of trying to open a file or folder.
+--Issue #9 Saml Bridge throws an exception when performing an authorization check on a file in use.
 
-version 1.0.3
-Problem fixed: 
-Issue #6, SAML Bridge throws an exception for URL encoded smb URLs
-Issue #7, User gets non-accessible pages in search results when the deny means redirect the user to another page.   	
+New Features
+---------------------------------
+Version 1.5 allows error pages or error codes to be used when something goes wrong. For example, some applications use IIS plugin so that when user is not authorized, he/she 
+will be redirected to an error page. Previous versions couldn't detect this type of denial. Now you can configure the SAML Bridge to recognize such permission denial.
 
-version 1.0.2
-Problem fixed: 
-Issue #2, XML characters in user name, domain name, file name, directory 
-Issue #3, multiple threads writing to ac.log
+----------------------------------------------------------------------------------------------------------------------
 
-version 1.0.1
-Problem fixed: 
-Issue #1, duplicat IDs in xml response
+Release 1.0.3
 
+Summary of Changes
+---------------------------------
+This patch contains fixes for the following issues in the connector:
+
+--Issue #6 SAML Bridge throws an exception for URL encoded smb URLs.
+--Issue #7 User gets non-accessible pages in search results when the deny means redirect the user to another page.   	
+
+----------------------------------------------------------------------------------------------------------------------
+
+Release 1.0.2
+
+Summary of Changes
+---------------------------------
+This patch contains fixes for the following issues in the connector:
+
+--Issue #2 XML characters in user name, domain name, file name, directory.
+--Issue #3 Multiple threads writing to ac.log.
+
+----------------------------------------------------------------------------------------------------------------------
+
+Release 1.0.1
+
+Summary of Changes
+---------------------------------
+This patch contains fixes for the following issues in the connector:
+
+--Issue #1 Duplicate IDs in xml response.
