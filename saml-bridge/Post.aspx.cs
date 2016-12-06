@@ -61,16 +61,16 @@ public partial class _Default : AuthenticationPage
         }
         Common.debug("The user is: " + subject);
         String SamlAssession = BuildAssertion(subject, authNRequest);
-        Response.Write(GenerateResponse(SamlAssession));
+        Response.Write(GenerateResponse(SamlAssession, authNRequest));
     }
 
-    String GenerateResponse(String SamlAssession)
+    String GenerateResponse(String SamlAssession, AuthNRequest authNRequest)
     {
         String postForm = String.Copy(Common.postForm);
         //Base64 encoding
         String encoded = Common.EncodeTo64(SamlAssession);
         //return the html
-        postForm = postForm.Replace("%ASSERTION_CONSUMER", Common.assertionConsumer);
+        postForm = postForm.Replace("%ASSERTION_CONSUMER", SamlAssertionConsumerValidator.GetValidURL(authNRequest));
         postForm = postForm.Replace("%SAML_RESPONSE", encoded);
         Common.debug(postForm);
         return postForm;
@@ -79,7 +79,7 @@ public partial class _Default : AuthenticationPage
     String BuildAssertion(String subject, AuthNRequest authNRequest)
     {
         Common.debug("inside BuildAssertion");
-        String recipientGsa = Common.GSAAssertionConsumer;
+        String recipientGsa = SamlAssertionConsumerValidator.GetValidURL(authNRequest);
         XmlDocument respDoc = (XmlDocument)Common.postResponse.CloneNode(true);
         Common.debug("before replacement: " + respDoc.InnerXml);
         if (!recipientGsa.StartsWith("http"))
@@ -92,7 +92,7 @@ public partial class _Default : AuthenticationPage
         DateTime currentTimeStamp = DateTime.Now;
         req = req.Replace("%INSTANT", Common.FormatInvariantTime(currentTimeStamp.AddMinutes(-1)));
         req = req.Replace("%NOT_ON_OR_AFTER", Common.FormatInvariantTime(currentTimeStamp.AddSeconds(Common.iTrustDuration)));
-        String idpEntityId;
+
         if (Common.IDPEntityId == null || "".Equals(Common.IDPEntityId))
         {
             throw new Exception("IDP Entity ID is not set in config. Using machine name as default");
@@ -124,7 +124,7 @@ public partial class _Default : AuthenticationPage
             {
                 AsymmetricAlgorithm algorithm = cert.PublicKey.Key;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "No";
             }
@@ -136,7 +136,7 @@ public partial class _Default : AuthenticationPage
             {
                 string algorithm = cert.PrivateKey.KeyExchangeAlgorithm;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return "No";
             }

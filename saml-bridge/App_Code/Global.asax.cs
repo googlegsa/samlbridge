@@ -25,7 +25,7 @@ using System.Xml;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Security;
-
+using System.Collections.Generic;
 
 namespace SAMLServices
 {
@@ -80,9 +80,22 @@ namespace SAMLServices
             Common.AuthZResponseSopaEnvelopeEnd = reader.ReadToEnd();
             fs.Close();
 
-            String level = ConfigurationSettings.AppSettings["log_level"];
-            Common.GSAAssertionConsumer = ConfigurationSettings.AppSettings["assertion_consumer"];
-            Common.IDPEntityId = ConfigurationSettings.AppSettings["idp_entity_id"];
+            String level = ConfigurationManager.AppSettings["log_level"];
+
+            String assertionConsumers = ConfigurationManager.AppSettings ["assertion_consumer"];
+            if (assertionConsumers != null)
+            {
+                foreach (String s in assertionConsumers.Split(','))
+                {
+                    String val = s.Trim();
+                    if (val.Length > 0)
+                    {
+                        Common.AllowedAssertionConsumers.Add(val);
+                    }
+                }
+            }
+
+            Common.IDPEntityId = ConfigurationManager.AppSettings["idp_entity_id"];
             if (level != null)
             {
                 if (level.ToLower().Equals("debug"))
@@ -92,15 +105,15 @@ namespace SAMLServices
                 else if (level.ToLower().Equals("error"))
                     Common.LOG_LEVEL = Common.ERROR;
             }
-            Common.iTrustDuration = int.Parse(ConfigurationSettings.AppSettings["trust_duration"]);
-            Common.subjectFormat = ConfigurationSettings.AppSettings["subject_format"];
+            Common.iTrustDuration = int.Parse(ConfigurationManager.AppSettings["trust_duration"]);
+            Common.subjectFormat = ConfigurationManager.AppSettings["subject_format"];
             GetCertificate();
-            String sProvider = ConfigurationSettings.AppSettings["provider"];
+            String sProvider = ConfigurationManager.AppSettings["provider"];
             if (sProvider != null && !sProvider.Equals(""))
                 Common.provider = Type.GetType(sProvider);
-            Common.SsoSubjectVar = ConfigurationSettings.AppSettings["sso_user_var"];
-            Common.DenyAction = ConfigurationSettings.AppSettings["deny_action"];
-            String alias = ConfigurationSettings.AppSettings["deny_urls"];
+            Common.SsoSubjectVar = ConfigurationManager.AppSettings["sso_user_var"];
+            Common.DenyAction = ConfigurationManager.AppSettings["deny_action"];
+            String alias = ConfigurationManager.AppSettings["deny_urls"];
             if (alias != null)
             {
                 String[] hosts = alias.Split(new char[] { ';' });
@@ -111,7 +124,7 @@ namespace SAMLServices
                     Common.denyUrls.Add(hosts[i].ToLower().Trim(), "1");
                 }
             }
-            String codes = ConfigurationSettings.AppSettings["deny_codes"];
+            String codes = ConfigurationManager.AppSettings["deny_codes"];
             if (codes != null)
             {
                 String[] aCodes = codes.Split(new char[] { ';' });
@@ -122,12 +135,12 @@ namespace SAMLServices
                     Common.denyCodes.Add(aCodes[i].Trim(), "1");
                 }
             }
-            ImpHeader.COOKIE_DOMAIN = ConfigurationSettings.AppSettings["imp_cookie_domain"];
+            ImpHeader.COOKIE_DOMAIN = ConfigurationManager.AppSettings["imp_cookie_domain"];
         }
 
         protected void GetCertificate()
         {
-            String certName = ConfigurationSettings.AppSettings["certificate_friendly_name"];
+            String certName = ConfigurationManager.AppSettings["certificate_friendly_name"];
             if (null == certName || "".Equals(certName))
                 return;
 
@@ -143,8 +156,11 @@ namespace SAMLServices
             }
             for (int i = 0; i < store.Certificates.Count; ++i)
             {
-                if (store.Certificates[i].FriendlyName.Equals(ConfigurationSettings.AppSettings["certificate_friendly_name"]))
+                if (store.Certificates[i].FriendlyName.Equals(
+                    ConfigurationManager.AppSettings["certificate_friendly_name"]))
+                {
                     Common.certificate = store.Certificates[i];
+                }
             }
             store.Close();
         }

@@ -243,7 +243,7 @@ namespace SAMLServices.Wia
             //FileInfo fi = new FileInfo(url);
             FileSecurity security = File.GetAccessControl(url);
             AuthorizationRuleCollection acl = security.GetAccessRules(true, true, typeof(System.Security.Principal.NTAccount));
-            bool allowRead = false;
+
             String user = wi.Name;
             //check users directly
             Common.debug(" acl count = " + acl.Count);
@@ -292,7 +292,6 @@ namespace SAMLServices.Wia
                     //Common.debug("rule.IdentityReference.Value = " + rule.IdentityReference.Value);
                     if (group.Value.Equals(rule.IdentityReference.Value))
                     {
-                        int iCurrent = -1;
                         Common.debug("found the group!" + group.Value);
                         if (System.Security.AccessControl.AccessControlType.Deny.Equals(rule.AccessControlType))
                         {

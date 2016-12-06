@@ -15,19 +15,8 @@
  */
 
 using System;
-using System.Collections;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Web;
-using System.Web.SessionState;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.UI.HtmlControls;
-using System.IO;
 using System.Xml;
 using System.Security;
-using System.Security.Principal;
 
 namespace SAMLServices
 {
@@ -95,7 +84,7 @@ namespace SAMLServices
 		/// <returns>Artifact Resolution Response XML</returns>
         String BuildResponse(String responseTo, SamlArtifactCacheEntry samlArtifactCacheEntry, String audienceRestriction)
 		{
-            String recipientGsa = Common.GSAAssertionConsumer;
+            String recipientGsa = samlArtifactCacheEntry.SamlAssertionConsumerURL;
             if (!recipientGsa.StartsWith("http"))
             {
                 recipientGsa = "http://" + Request.Headers["Host"] + recipientGsa;

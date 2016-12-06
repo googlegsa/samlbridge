@@ -79,7 +79,8 @@ namespace SAMLServices
             // and the AuthN request Id with the artifact string.
 			// This is used later when the GSA asks to verify the artifact and obtain the 
 			// user ID (in ResolveArt.aspx.cs).
-            SamlArtifactCacheEntry samlArtifactCacheEntry = new SamlArtifactCacheEntry(subject, authNRequest.Id);
+            SamlArtifactCacheEntry samlArtifactCacheEntry = new SamlArtifactCacheEntry(subject, 
+                authNRequest.Id, authNRequest.AssertionConsumerServiceURL);
 
             Application[Common.ARTIFACT + "_" + artifactId] = samlArtifactCacheEntry;
 
@@ -92,7 +93,8 @@ namespace SAMLServices
 
 			// Encode the relay state for building the redirection URL (back to the GSA)
 			relayState = HttpUtility.UrlEncode(relayState);
-			gsa = Common.GSAAssertionConsumer + "?SAMLart=" + artifactId  + "&RelayState=" + relayState;
+			gsa = SamlAssertionConsumerValidator.GetValidURL(authNRequest)
+                + "?SAMLart=" + artifactId  + "&RelayState=" + relayState;
             if (!gsa.StartsWith("http"))
             {
                 gsa = "http://" + Request.Headers["Host"] + gsa;

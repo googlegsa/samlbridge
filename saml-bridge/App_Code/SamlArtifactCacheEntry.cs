@@ -27,29 +27,16 @@ namespace SAMLServices
     /// </summary>
     public class SamlArtifactCacheEntry
     {
-        private readonly string subject;
-        private readonly string authNRequestId;
+        public readonly string Subject;
+        public readonly string AuthNRequestId;
+        public readonly string SamlAssertionConsumerURL;
 
-        public SamlArtifactCacheEntry(string subject, string authNRequestId)
+        public SamlArtifactCacheEntry(string subject, string authNRequestId,
+                                      string samlAssertionConsumerURL)
         {
-            this.subject = subject;
-            this.authNRequestId = authNRequestId;
-        }
-
-        public string Subject
-        {
-            get
-            {
-                return subject;
-            }
-        }
-
-        public string AuthNRequestId
-        {
-            get
-            {
-                return authNRequestId;
-            }
+            this.Subject = subject;
+            this.AuthNRequestId = authNRequestId;
+            this.SamlAssertionConsumerURL = samlAssertionConsumerURL;
         }
     }
 }

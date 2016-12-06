@@ -20,16 +20,20 @@ using System.Security.Principal;
 
 public class AuthNRequest
 {
-    String _id, _issuer;
+    private String _id, _issuer, _assertionConsumerServiceURL;
+
+    public AuthNRequest(String id, String issuer, String assertionConsumerServiceURL)
+    {
+        this._id = id;
+        this._issuer = issuer;
+        this._assertionConsumerServiceURL = assertionConsumerServiceURL;
+    }
+
     public String Id
     {
         get
         {
             return _id;
-        }
-        set
-        {
-            _id = value;
         }
     }
 
@@ -39,9 +43,13 @@ public class AuthNRequest
         {
             return _issuer;
         }
-        set
+    }
+
+    public String AssertionConsumerServiceURL
+    {
+        get
         {
-            _issuer = value;
+            return _assertionConsumerServiceURL;
         }
     }
 }
@@ -104,10 +112,9 @@ public class AuthenticationPage : System.Web.UI.Page
         XmlDocument doc = new XmlDocument();
         doc.InnerXml = samlRequest;
         XmlElement root = doc.DocumentElement;
-        AuthNRequest req = new AuthNRequest();
-        req.Id = root.Attributes["ID"].Value;
-        req.Issuer = Common.FindOnly(samlRequest, "Issuer").InnerText;
-        return req;
+        return new AuthNRequest(root.Attributes["ID"].Value,
+            Common.FindOnly(samlRequest, "Issuer").InnerText,
+            root.Attributes["AssertionConsumerServiceURL"].Value);
     }
 
     #region Decompression requires .NET Framework v 2.0

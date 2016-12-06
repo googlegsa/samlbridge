@@ -33,7 +33,7 @@ namespace SAMLServices
 
 		public SsoAuthImpl(System.Web.UI.Page page)
 		{
-			IMP_METHOD  = ConfigurationSettings.AppSettings["impersonation_method"];
+			IMP_METHOD = ConfigurationManager.AppSettings["impersonation_method"];
             if (IMP_METHOD == null)
             {
                 throw new Exception("key=impersonation_method missing from web.config");
@@ -82,7 +82,7 @@ namespace SAMLServices
 			return currentUser;
 		}
 
-		public void Diagnose()
+		public new void Diagnose()
 		{
 			HttpRequest Request = page.Request;
 			HttpResponse Response = page.Response;

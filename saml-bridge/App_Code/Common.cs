@@ -17,20 +17,11 @@
 using System;
 using System.Globalization;
 using System.Xml;
-using System.Web;
-using System.Collections.Specialized;
-using System.Net;
 using System.IO;
-using System.Security.Principal;
-using System.Configuration;
 using System.Collections;
-using System.Security;
-using System.ComponentModel;
-using System.Data;
-using System.Security.Cryptography;
-using System.Security.Cryptography;
-using System.Security.Cryptography.X509Certificates;
 
+using System.Security.Cryptography.X509Certificates;
+using System.Collections.Generic;
 
 namespace SAMLServices
 {
@@ -55,7 +46,7 @@ namespace SAMLServices
         public static String AuthZResponseSopaEnvelopeEnd = null;
         public static String LogFile = null;
         public static bool bDebug = false;
-        public static String assertionConsumer = null;
+        private static List<String> allowedAssertionConsumers = new List<String>();
         public static String idpEntityId = null;
         public static Type provider = typeof(SAMLServices.Wia.AuthImpl);
         public static int DEBUG = 0, INFO = 1, ERROR = 2;
@@ -119,22 +110,18 @@ namespace SAMLServices
 
 
         /// <summary>
-        ///Method to determine the URL to which the user is redirected
-        /// after login.
+        /// URL to which the user is redirected after login.
+        /// Value is comma separated list of URLs.
         /// Based on whether this is a simulation or not.
-        ///The simulator is a test utility that simulates
-        ///the SAML requests that come from a GSA.
+        /// The simulator is a test utility that simulates
+        /// the SAML requests that come from a GSA.
         /// 
         /// </summary>
-        public static String GSAAssertionConsumer
+        public static List<String> AllowedAssertionConsumers
         {
             get
             {
-                return assertionConsumer;
-            }
-            set
-            {
-                assertionConsumer = value;
+                return allowedAssertionConsumers;
             }
         }
 

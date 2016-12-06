@@ -22,13 +22,13 @@ namespace SAMLServices
 		CookieCollection mCookies;
 		public ImpSM()
 		{
-			IMP_TOR = ConfigurationSettings.AppSettings["sm_impersonator"];
+			IMP_TOR = ConfigurationManager.AppSettings["sm_impersonator"];
 			Common.debug("impersonator: " + IMP_TOR);
-			IMP_PWD = ConfigurationSettings.AppSettings["sm_impersonator_pwd"];
+			IMP_PWD = ConfigurationManager.AppSettings["sm_impersonator_pwd"];
 			Common.debug("password: " + IMP_PWD);
-			IMP_START = ConfigurationSettings.AppSettings["sm_start_imp_fcc"];
-			IMP_END = ConfigurationSettings.AppSettings["sm_end_imp_fcc"];
-			AUTH_REALM = ConfigurationSettings.AppSettings["sm_impersonator_realm"];
+			IMP_START = ConfigurationManager.AppSettings["sm_start_imp_fcc"];
+			IMP_END = ConfigurationManager.AppSettings["sm_end_imp_fcc"];
+			AUTH_REALM = ConfigurationManager.AppSettings["sm_impersonator_realm"];
 		}
 
 		void Login()

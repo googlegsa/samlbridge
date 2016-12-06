@@ -114,7 +114,7 @@ using System.IO.Compression;
 
 		public static String getAC(HttpRequest request)
 		{
-			String ac = ConfigurationSettings.AppSettings["ac"];
+			String ac = ConfigurationManager.AppSettings["ac"];
 			if (!ac.EndsWith("/"))
 				ac = ac + "/";
 			if (ac.StartsWith("http"))
