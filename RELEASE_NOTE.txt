@@ -3,7 +3,7 @@ Release Notes:
 
 SAML Bridge for Windows
 
-This document contains the release notes for SAML Bridge for Windows, a part of the Google Search Appliance..
+This document contains the release notes for SAML Bridge for Windows, a part of the Google Search Appliance.
 The following sections describe the release in detail and provide information that supplements the main documentation.
 
 Web Site: https://github.com/googlegsa/samlbridge
