@@ -1,12 +1,51 @@
 Release Notes:
 ===============
 
-Google SAML Bridge for Windows
+SAML Bridge for Windows
 
-This document contains the release notes for Google SAML Bridge for Windows.
+This document contains the release notes for SAML Bridge for Windows, a part of the Google Search Appliance.
 The following sections describe the release in detail and provide information that supplements the main documentation.
 
-Web Site: http://code.google.com/p/google-saml-bridge-for-windows/
+Web Site: https://github.com/googlegsa/samlbridge
+
+Release 4.1.3 March 22, 2017
+====================================
+
+Introduction
+------------
+This is a patch release that adds a simple new feature requested since the previous release. Users of previous releases are encouraged to upgrade only if they need these new features.  Your feedback is important to us.
+
+Summary of Changes / New Features
+---------------------------------
+This patch contains fixes for the following issues in the connector:
+ 
+-- Issue 10690131 SAML Bridge supports multi-host GSA configuration (GSA^n) using assertion_consumer URL from the SAML request.
+
+Platform Support
+------------------
+SAML Bridge for Windows can be installed and run on both 32-bit and 64-bit Windows.
+
+Certified Against
+-------------------
+32-bit:
+-------
+Microsoft Windows Server 2008 R2
+Enterprise Edition
+Intel(R) Xeon(R) CPU
+E5504 @ 2.00GHz, 2.00 GB of RAM
+
+64-bit:
+--------
+Microsoft Windows Server 2008 R2
+Enterprise x64 Edition
+Intel(R) Xeon(R) CPU
+E5504 @ 2.00GHz, 2.00 GB of RAM
+
+GSA Support:
+---------------------
+This version of SAML Bridge for Windows has been certified against GSA 7.4 and 7.6.
+
+----------------------------------------------------------------------------------------------------------------------
 
 Release 3.0.0 October 16, 2012
 ====================================
