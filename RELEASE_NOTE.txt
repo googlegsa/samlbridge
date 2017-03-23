@@ -1,7 +1,7 @@
 Release Notes:
 ===============
 
-Google SAML Bridge for Windows
+SAML Bridge for Google Search Appliance
 
 This document contains the release notes for Google SAML Bridge for Windows.
 The following sections describe the release in detail and provide information that supplements the main documentation.
@@ -44,7 +44,7 @@ E5504 @ 2.00GHz, 2.00 GB of RAM
 
 GSA Support:
 ---------------------
-This version of Google SAML Bridge for Windows has been certified against GSA 7.4.0.G.132 and 7.6.0.G.58
+This version of Google SAML Bridge for Windows has been certified against GSA 7.4 and 7.6.
 
 ----------------------------------------------------------------------------------------------------------------------
 
