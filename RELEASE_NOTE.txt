@@ -66,7 +66,7 @@ This patch contains fixes for the following issues in the connector:
 
 Platform Support
 ------------------
-Google SAML Bridge for Windows can be installed and run on both 32-bit and 64-bit Windows.
+SAML Bridge for Windows can be installed and run on both 32-bit and 64-bit Windows.
 
 Certified Against
 -------------------
@@ -86,7 +86,7 @@ E5504 @ 2.00GHz, 2.00 GB of RAM
 
 GSA Support:
 ---------------------
-This version of Google SAML Bridge for Windows has been certified against GSA 6.14.0.G.28 and GSA 7.0.14.G.84.
+This version of SAML Bridge for Windows has been certified against GSA 6.14.0.G.28 and GSA 7.0.14.G.84.
 
 ----------------------------------------------------------------------------------------------------------------------
 
@@ -101,11 +101,11 @@ Summary of Changes / New Features
 ---------------------------------
 This patch contains fixes for the following issues in the connector:
 --Issue 5157155 SAML bridge doesn't work with SharePoint connector 2.8 group resolution.
---Issue 4356803 Google (GSA) SAML Bridge should support Post Binding.
+--Issue 4356803 SAML Bridge should support Post Binding.
 
 Platform Support
 ------------------
-Google SAML Bridge for Windows can be installed and run on both 32-bit and 64-bit Windows.
+SAML Bridge for Windows can be installed and run on both 32-bit and 64-bit Windows.
 
 Certified Against
 -------------------
@@ -125,7 +125,7 @@ E5504 @ 2.00GHz, 2.00 GB of RAM
 
 GSA Support:
 ---------------------
-This version of Google SAML Bridge for Windows has been certified against GSA 6.14.0.G.28 and GSA 7.0.14.G.84.
+This version of SAML Bridge for Windows has been certified against GSA 6.14.0.G.28 and GSA 7.0.14.G.84.
 
 ----------------------------------------------------------------------------------------------------------------------
 
