@@ -159,11 +159,15 @@ public class AuthenticationPage : System.Web.UI.Page
         return req;
     }
 
-
     public void printHeader()
     {
+        Response.Write("<html><head><title>SAML Bridge for Windows</title>");
         Response.Write("<style><!--					body,td,div,.p,a,.d,.s{font-family:arial,sans-serif}--></style>");
-        Response.Write("<html><body><table><tr><td><img src='google.gif'/></td><td><font size=6>Google SAML Bridge for Windows</font></td></tr></table>");
+        Response.Write("</head><body><table cellspacing='10'><tr><td>");
+        Response.Write("<img src='google_logo.png' height='41' width='116' alt='logo'/>");
+        Response.Write("</td></tr><tr><td><font size='5'>");
+        Response.Write("SAML Bridge for Windows with Google Search Appliance");
+        Response.Write("</font></td></tr></table>");
         Response.Write("<br>");
     }
     public void printFooter()

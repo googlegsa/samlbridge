@@ -14,6 +14,6 @@
 		<asp:Label id="Label1" style="Z-INDEX: 103; LEFT: 224px; POSITION: absolute; TOP: 8px" runat="server"
 			Width="408px" Height="80px" Font-Size="Large" Font-Names="Arial">Google Search Appliance  Security SPI Simulator</asp:Label>
 		<asp:Image id="Image1" style="Z-INDEX: 104; LEFT: 8px; POSITION: absolute; TOP: 8px" runat="server"
-			ImageUrl="google.gif"></asp:Image>
+			ImageUrl="google_logo.png"></asp:Image>
 	</body>
 </HTML>
