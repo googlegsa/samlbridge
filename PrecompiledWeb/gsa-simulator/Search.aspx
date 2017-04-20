@@ -11,7 +11,7 @@
 	<body>
 		<FONT face="arial">
 			<P><FONT face="arial" size="5">
-					<asp:Image id="Image1" runat="server" ImageUrl="google.gif"></asp:Image>
+					<asp:Image id="Image1" runat="server" ImageUrl="google_logo.png"></asp:Image>
 					<asp:Label id="Label2" runat="server" Width="408px" Height="80px" Font-Names="Arial" Font-Size="Large">Google Search Appliance  Security SPI Simulator</asp:Label></FONT></P>
 		</FONT>
 		<form id="Form1" action="Search.aspx" method="get" runat="server">
