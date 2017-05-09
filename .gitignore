@@ -1,3 +1,4 @@
-/config-tool/SAMLBridgeConfiguration/SAMLBridgeConfiguration.suo
+*.suo
 /config-tool/SAMLBridgeConfiguration/bin/
 /config-tool/SAMLBridgeConfiguration/obj/
+/PrecompiledWeb
